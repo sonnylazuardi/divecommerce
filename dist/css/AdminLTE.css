@@ -378,6 +378,11 @@ a:focus {
     padding-top: 100px!important;
   }
 }
+i.big {
+  font-size: 20px;
+  margin-top: 5px;
+  margin-right: 5px;
+}
 /*
  * Component: Sidebar
  * ------------------
