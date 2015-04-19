@@ -84,6 +84,8 @@ $(function () {
   // salesChart.Line(salesChartData, salesChartOptions);
 
 
+  $('#filterdate').daterangepicker();
+
   // SPIDER CHART
 
   $('#spider').highcharts({

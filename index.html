@@ -125,14 +125,27 @@
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-          <h1>
-            Dashboard
-            <small>Executive Summary</small>
-          </h1>
-          <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Dashboard</li>
-          </ol>
+          <div class="row">
+            <div class="col-md-8">
+              <h1>
+                Dashboard
+                <small>Executive Summary</small>
+              </h1>  
+            </div>
+            <div class="col-md-4">
+              <div class="input-group">
+                <div class="input-group-addon filter">
+                  <i class="fa fa-calendar"></i>
+                </div>
+                <input type="text" class="form-control pull-right" id="filterdate" value="04/19/2015 - 04/30/2015" />
+              </div><!-- /.input group -->
+            </div>
+            <!-- <ol class="breadcrumb">
+              <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+              <li class="active">Dashboard</li>
+            </ol> -->
+          </div>
+          
         </section>
 
         <!-- Main content -->
@@ -193,7 +206,7 @@
                       <div class="chart-responsive">
                         <!-- Sales Chart Canvas -->
                         <!-- <canvas id="salesChart" height="180"></canvas> -->
-                        <div id="spider" style="min-width: 400px; max-width: 600px; height: 350px; margin: 0 auto"></div>
+                        <div id="spider" style="min-width: 400px; max-width: 600px; height: 370px; margin: 0 auto"></div>
                       </div><!-- /.chart-responsive -->
                     </div><!-- /.col -->
                   </div><!-- /.row -->
