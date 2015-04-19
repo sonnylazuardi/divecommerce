@@ -288,11 +288,11 @@ a:focus {
   position: relative;
   padding: 15px 15px 0 15px;
 }
-.content-header > h1 {
+.content-header h1 {
   margin: 0;
   font-size: 24px;
 }
-.content-header > h1 > small {
+.content-header h1 > small {
   font-size: 15px;
   display: inline-block;
   padding-left: 4px;
@@ -928,6 +928,10 @@ a:focus {
   border-radius: 0px;
   border-color: #d2d6de;
   background-color: #fff;
+}
+.input-group .input-group-addon.filter {
+  border-color: transparent;
+  background-color: transparent;
 }
 /* button groups */
 .btn-group-vertical .btn.btn-flat:first-of-type,

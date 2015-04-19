@@ -114,10 +114,10 @@
 					<!-- /.search form -->
 					<!-- sidebar menu: : style can be found in sidebar.less -->
 					<ul class="sidebar-menu">
-						<li class="active">
+						<li>
 							<a href="index.html"><i class="fa fa-circle-o"></i> Dashboard</a></li>
 						</li>
-						<li>
+						<li class="active">
 							<a href="profile.html"><i class="fa fa-circle-o"></i> Consumer Profile</a></li>
 						</li>
 						<li>
@@ -163,7 +163,7 @@
 							<div class="info-box">
 								<span class="info-box-icon bg-aqua"><img src="img/blibli.png" /></span>
 								<div class="info-box-content">
-									<span class="info-box-text">BliBli</span>
+									<span class="info-box-text">Blibli</span>
 								</div><!-- /.info-box-content -->
 							</div><!-- /.info-box -->
 						</div><!-- /.col -->
@@ -197,29 +197,17 @@
 					</div><!-- /.row -->
 
 					<div class="row">
-						<div class="col-md-5">
-							<div class="box">
-								<div class="box-header with-border">
-									<h3 class="box-title">Key Performance Indicator</h3>
-									<div class="box-tools pull-right">
-										<button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-										<button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-									</div>
-								</div><!-- /.box-header -->
-								<div class="box-body">
-									<div class="row">
-										<div class="col-md-12">
-											<div class="chart-responsive">
-												<!-- Sales Chart Canvas -->
-												<!-- <canvas id="salesChart" height="180"></canvas> -->
-												<div id="chart-kpi" style="min-width: 400px; max-width: 600px; height: 350px; margin: 0 auto"></div>
-											</div><!-- /.chart-responsive -->
-										</div><!-- /.col -->
-									</div><!-- /.row -->
-								</div><!-- ./box-body -->
-							</div><!-- /.box -->
+						<div class="col-md-6">
+							<div class="box box-success">
+				                <div class="box-header">
+				                  <h3 class="box-title">Bar Chart</h3>
+				                </div>
+				                <div class="box-body">
+				                  <canvas id="barChart" height="230"></canvas>
+				                </div><!-- /.box-body -->
+				              </div><!-- /.box -->
 						</div><!-- /.col -->
-						<div class="col-md-7">
+						<div class="col-md-6">
 							<div class="box">
 								<div class="box-header with-border">
 									<h3 class="box-title">Fans</h3>
@@ -234,7 +222,7 @@
 											<div class="chart-responsive">
 												<!-- Sales Chart Canvas -->
 												<!-- <canvas id="salesChart" height="180"></canvas> -->
-												<div id="chart-fans" style="min-width: 400px; max-width: 600px; height: 200px; margin: 0 auto"></div>
+												<div id="chart-fans" style="min-width: 400px; max-width: 600px; height: 350px; margin: 0 auto"></div>
 											</div><!-- /.chart-responsive -->
 										</div><!-- /.col -->
 									</div><!-- /.row -->
@@ -734,5 +722,8 @@
 
 		<!-- AdminLTE for demo purposes -->
 		<script src="dist/js/demo.js" type="text/javascript"></script>
+
+		<!--Profile-->
+		<script src="dist/js/profile.js" type="text/javascript"></script>		
 	</body>
 </html>

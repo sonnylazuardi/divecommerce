@@ -83,7 +83,9 @@ $(function () {
 	//Create the line chart
 	// salesChart.Line(salesChartData, salesChartOptions);
 
+  $('#filterdate').daterangepicker();
 
+  // SPIDER CHART
 	// CHARTS
 
 	// Chart-KPI
