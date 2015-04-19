@@ -1,5 +1,5 @@
 'use strict';
-$(function () {
+//$(function () {
         /* ChartJS
          * -------
          * Here we will create a few charts using ChartJS
@@ -166,8 +166,12 @@ $(function () {
         //-------------
         //- BAR CHART -
         //-------------
-        var areaChartData = {
-          labels: ["Laki-laki","Perempuan"],
+        
+      // });
+$(function () {
+
+    var areaChartData = {
+          labels: ["Anak-anak(<12)","Remaja(12-17)","Dewasa Muda(18-29)","Dewasa(>30)"],
           datasets: [
             {
               label: "Blibli.com",
@@ -177,7 +181,7 @@ $(function () {
               pointStrokeColor: "#c1c7d1",
               pointHighlightFill: "#fff",
               pointHighlightStroke: "rgba(220,220,220,1)",
-              data: [75, 40]
+              data: [75, 40, 22, 34]
             },
             {
               label: "Lazada.com",
@@ -187,7 +191,7 @@ $(function () {
               pointStrokeColor: "rgba(60,141,188,1)",
               pointHighlightFill: "#fff",
               pointHighlightStroke: "rgba(60,141,188,1)",
-              data: [28, 48]
+              data: [50, 54, 99, 10]
             },
             {
               label: "Rakuten.com",
@@ -197,7 +201,7 @@ $(function () {
               pointStrokeColor: "rgba(60,141,188,1)",
               pointHighlightFill: "#fff",
               pointHighlightStroke: "rgba(60,141,188,1)",
-              data: [28, 48]
+              data: [28, 58, 22, 35]
             },
             {
               label: "Tokopedia.com",
@@ -207,7 +211,7 @@ $(function () {
               pointStrokeColor: "rgba(60,141,188,1)",
               pointHighlightFill: "#fff",
               pointHighlightStroke: "rgba(60,141,188,1)",
-              data: [28, 48]
+              data: [60, 28, 76, 45]
             }
           ]
         };
@@ -247,4 +251,71 @@ $(function () {
 
         barChartOptions.datasetFill = false;
         barChart.Bar(barChartData, barChartOptions);
-      });
+
+    var categories = ['Tokopedia', 'Rakuten',  'Lazada','Blibli'  ];
+    $(document).ready(function () {
+        $('#container').highcharts({
+            chart: {
+                type: 'bar'
+            },
+            colors: [
+            'blue','pink'
+            ],
+            title: {
+                text: 'Distribusi Pengguna E-Commerce di Indonesia'
+            },
+            subtitle: {
+                text: 'Source: www.ecommerce.id'
+            },
+            xAxis: [{
+                categories: categories,
+                reversed: false,
+                labels: {
+                    step: 1
+                }
+            }, { // mirror axis on right side
+                opposite: true,
+                reversed: false,
+                categories: categories,
+                linkedTo: 0,
+                labels: {
+                    step: 1
+                }
+            }],
+            yAxis: {
+                title: {
+                    text: null
+                },
+                labels: {
+                    formatter: function () {
+                        return (Math.abs(this.value) / 1000000) + 'M';
+                    }
+                },
+                min: -4000000,
+                max: 4000000
+            },
+
+            plotOptions: {
+                series: {
+                    stacking: 'normal'
+                }
+            },
+
+            tooltip: {
+                formatter: function () {
+                    return '<b>' + this.series.name + ', E-Commerce : ' + this.point.category + '</b><br/>' +
+                        'Jumlah Pengguna: ' + Highcharts.numberFormat(Math.abs(this.point.y), 0) + ' orang.';
+                }
+            },
+
+            series: [{
+                name: 'Male',
+                data: [-1746181, -1884428, -2089758, -2222362]
+            }, {
+                name: 'Female',
+                data: [656154, 1787564, 1981671, 2108575]
+            }]
+        });
+    });
+
+});
