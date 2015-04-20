@@ -50,6 +50,7 @@ $(function () {
       series: [{
           id: 0,
           name: "BliBli",
+          color: color_blibli,
           data: [
             [Date.UTC(2015, 4,  1), (Math.random()*10)-5],
             [Date.UTC(2015, 4,  2), (Math.random()*10)-5],
@@ -85,6 +86,7 @@ $(function () {
       }, {
           id: 1,
           name: "Rakuten",
+          color: color_rakuten,
           data: [
             [Date.UTC(2015, 4,  1), (Math.random()*10)-5],
             [Date.UTC(2015, 4,  2), (Math.random()*10)-5],
@@ -120,6 +122,7 @@ $(function () {
       }, {
           id: 2,
           name: "Tokopedia",
+          color: color_tokopedia,
           data: [
             [Date.UTC(2015, 4,  1), (Math.random()*10)-5],
             [Date.UTC(2015, 4,  2), (Math.random()*10)-5],
@@ -155,6 +158,7 @@ $(function () {
       }, {
           id: 3,
           name: "Lazada",
+          color: color_lazada,
           data: [
             [Date.UTC(2015, 4,  1), (Math.random()*10)-5],
             [Date.UTC(2015, 4,  2), (Math.random()*10)-5],
