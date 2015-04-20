@@ -88,6 +88,9 @@ $(function () {
   // SPIDER CHART
 	// CHARTS
 
+	// Chart-KPI
+
+
 	var color_blibli = "#00c0ef";
 	var color_rakuten = "#dd4b39";
 	var color_lazada = "#f39c12";
@@ -110,8 +113,16 @@ $(function () {
 		},
 
 		xAxis: {
-				categories: ['Sales', 'Marketing', 'Development', 'Customer Support',
-								'Information Technology', 'Administration'],
+				categories: [
+					'Abs. Change in Fans',
+					'Rel. Change in Fans',
+					'Admin Posts',
+					'Page ER',
+					'Post ER',
+					'Interaction',
+					'User Posts', 
+					'Admin Response Rate'
+				],
 				tickmarkPlacement: 'on',
 				lineWidth: 0
 		},
@@ -119,31 +130,134 @@ $(function () {
 		yAxis: {
 				gridLineInterpolation: 'polygon',
 				lineWidth: 0,
-				min: 0
+				min: 0,
+				max: 1,
+				labels: {
+					enabled: false
+				}
 		},
 
 		tooltip: {
 				shared: true,
-				pointFormat: '<span style="color:{series.color}">{series.name}: <b>${point.y:,.0f}</b><br/>'
+				formatter: function() {
+					var multiplier = 1;
+					var flt = true;
+					var postfix = '';
+
+					if (this.x=='Abs. Change in Fans') {
+						multiplier = 62263.0;
+						flt = false;
+					}
+					else if (this.x=='Rel. Change in Fans') {
+						multiplier = 1.32;
+						flt = true;
+						postfix = '%';
+					}
+					else if (this.x=='Admin Posts') {
+						multiplier = 732.0;
+						flt = false;
+					}
+					else if (this.x=='Page ER') {
+						multiplier = 0.19;
+						flt = true;
+						postfix = '%';
+					}
+					else if (this.x=='Post ER') {
+						multiplier = 0.11;
+						flt = true;
+						postfix = '%';
+					}
+					else if (this.x=='Interaction') {
+						multiplier = 102494.0;
+						flt = false;
+					}
+					else if (this.x=='User Posts') {
+						multiplier = 3532.0;
+						flt = false;
+					}
+					else if (this.x=='Admin Response Rate') {
+						multiplier = 94.17;
+						flt = true;
+						postfix = '%';
+					}
+
+					var s = '<b>' + this.x + '</b>';
+
+					$.each(this.points, function () {
+						s += '<br/><span style="color:' + this.series.color + '">\u25CF ' + this.series.name + '</span> ';
+						if (!flt) {
+							s += Math.floor(this.y*multiplier);
+						} else {
+							s += (this.y*multiplier).toFixed(2);
+						}
+						s += ' ' + postfix;
+					});
+
+					return s;
+				}
 		},
 
 		series: [
 			{
-					data: [43000, 19000, 60000, 35000, 17000, 10000],
+					name: "BliBli",
+					data: [
+						(43643.0/62263.0),
+						(0.88/1.32),
+						(507.0/732.0),
+						(0.07/0.19),
+						(0.00/0.11),
+						(102494/102494),
+						(2928/3532),
+						(94.17/94.17)
+					],
 					pointPlacement: 'on',
-					color: color_blibli
+					color: color_blibli,
+					image: "img/blibli_color.png"
 			}, {
-					data: [50000, 39000, 42000, 31000, 26000, 14000],
+					name: "Rakuten",
+					data: [
+						(15231.0/62263.0),
+						(0.83/1.32),
+						(215.0/732.0),
+						(0.02/0.19),
+						(0.01/0.11),
+						(51521/102494),
+						(1518/3532),
+						(74.21/94.17)
+					],
 					pointPlacement: 'on',
-					color: color_rakuten
+					color: color_rakuten,
+					image: "img/rakuten_color.png"
 			}, {
-					data: [31000, 39000, 35000, 39000, 19000, 10000],
+					name: "Tokopedia",
+					data: [
+						(34125.0/62263.0),
+						(1.19/1.32),
+						(356.0/732.0),
+						(0.19/0.19),
+						(0.11/0.11),
+						(72521/102494),
+						(3532/3532),
+						(83.42/94.17)
+					],
 					pointPlacement: 'on',
-					color: color_tokopedia
+					color: color_tokopedia,
+					image: "img/tokopedia_color.png"
 			}, {
-					data: [31000, 39000, 14000, 10000, 39000, 50000],
+					name: "Lazada",
+					data: [
+						(62263.0/62263.0),
+						(1.32/1.32),
+						(732.0/732.0),
+						(0.05/0.19),
+						(0.10/0.11),
+						(82321/102494),
+						(2521/3532),
+						(91.94/94.17)
+					],
 					pointPlacement: 'on',
-					color: color_lazada
+					color: color_lazada,
+					image: "img/lazada_color.png"
 			}
 		]
 
@@ -151,29 +265,37 @@ $(function () {
 
 	$(function () {
 		$('#chart-fans').highcharts({
+			chart: {
+				zoomType: 'x'
+			},
 			title: {
-				text: 'Monthly Average Temperature',
-				x: -20 //center
+				text: '',
+				x: -80
 			},
 			subtitle: {
-				text: 'Source: WorldClimate.com',
-				x: -20
+				text: '',
+				x: -80
+			},
+			tooltip: {
+				shared: true,
+				crosshair: true,
+				pointFormat: '<span style="color:{series.color}">\u25CF {series.name} </span> {point.y:,.2f} %<br/>'
 			},
 			xAxis: {
-				categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+				type: 'datetime',
+				dateTimeLabelFormats: { // don't display the dummy year
+					day:"%A, %b %e, %Y",
+					week:"Week from %A, %b %e, %Y",
+					month:"%B %Y",
+					year:"%Y"
+        }
 			},
 			yAxis: {
 				title: {
-					text: 'Temperature (°C)'
+					text: ''
 				},
-				plotLines: [{
-					value: 0,
-					width: 1,
-					color: '#808080'
-				}]
-			},
-			tooltip: {
-				valueSuffix: '°C'
+				startOnTick: false,
+				endOnTick: false,
 			},
 			legend: {
 				layout: 'vertical',
@@ -181,19 +303,165 @@ $(function () {
 				verticalAlign: 'middle',
 				borderWidth: 0
 			},
-			series: [{
-				name: 'Tokyo',
-				data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
-			}, {
-				name: 'New York',
-				data: [-0.2, 0.8, 5.7, 11.3, 17.0, 22.0, 24.8, 24.1, 20.1, 14.1, 8.6, 2.5]
-			}, {
-				name: 'Berlin',
-				data: [-0.9, 0.6, 3.5, 8.4, 13.5, 17.0, 18.6, 17.9, 14.3, 9.0, 3.9, 1.0]
-			}, {
-				name: 'London',
-				data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
-			}]
+			plotOptions: {
+				series: {
+            marker: {
+                enabled: false,
+                radius: 1
+            }
+        },
+      },
+			series: [
+				{
+					name: "BliBli",
+					data: [
+						[Date.UTC(2015, 4,  1), (Math.random()*10)-5],
+						[Date.UTC(2015, 4,  2), (Math.random()*10)-5],
+						[Date.UTC(2015, 4,  3), (Math.random()*10)-5],
+						[Date.UTC(2015, 4,  4), (Math.random()*10)-5],
+						[Date.UTC(2015, 4,  5), (Math.random()*10)-5],
+						[Date.UTC(2015, 4,  6), (Math.random()*10)-5],
+						[Date.UTC(2015, 4,  7), (Math.random()*10)-5],
+						[Date.UTC(2015, 4,  8), (Math.random()*10)-5],
+						[Date.UTC(2015, 4,  9), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 10), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 11), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 12), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 13), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 14), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 15), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 16), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 17), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 18), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 19), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 20), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 21), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 22), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 23), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 24), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 25), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 26), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 27), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 28), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 29), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 30), (Math.random()*10)-5]
+					],
+					pointPlacement: 'on',
+					color: color_blibli,
+					image: "img/blibli_color.png"
+				}, {
+					name: "Rakuten",
+					data: [
+						[Date.UTC(2015, 4,  1), (Math.random()*10)-5],
+						[Date.UTC(2015, 4,  2), (Math.random()*10)-5],
+						[Date.UTC(2015, 4,  3), (Math.random()*10)-5],
+						[Date.UTC(2015, 4,  4), (Math.random()*10)-5],
+						[Date.UTC(2015, 4,  5), (Math.random()*10)-5],
+						[Date.UTC(2015, 4,  6), (Math.random()*10)-5],
+						[Date.UTC(2015, 4,  7), (Math.random()*10)-5],
+						[Date.UTC(2015, 4,  8), (Math.random()*10)-5],
+						[Date.UTC(2015, 4,  9), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 10), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 11), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 12), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 13), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 14), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 15), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 16), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 17), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 18), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 19), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 20), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 21), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 22), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 23), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 24), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 25), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 26), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 27), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 28), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 29), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 30), (Math.random()*10)-5]
+					],
+					pointPlacement: 'on',
+					color: color_rakuten,
+					image: "img/rakuten_color.png"
+				}, {
+					name: "Tokopedia",
+					data: [
+						[Date.UTC(2015, 4,  1), (Math.random()*10)-5],
+						[Date.UTC(2015, 4,  2), (Math.random()*10)-5],
+						[Date.UTC(2015, 4,  3), (Math.random()*10)-5],
+						[Date.UTC(2015, 4,  4), (Math.random()*10)-5],
+						[Date.UTC(2015, 4,  5), (Math.random()*10)-5],
+						[Date.UTC(2015, 4,  6), (Math.random()*10)-5],
+						[Date.UTC(2015, 4,  7), (Math.random()*10)-5],
+						[Date.UTC(2015, 4,  8), (Math.random()*10)-5],
+						[Date.UTC(2015, 4,  9), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 10), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 11), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 12), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 13), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 14), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 15), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 16), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 17), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 18), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 19), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 20), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 21), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 22), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 23), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 24), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 25), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 26), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 27), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 28), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 29), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 30), (Math.random()*10)-5],
+					],
+					pointPlacement: 'on',
+					color: color_tokopedia,
+					image: "img/tokopedia_color.png"
+				}, {
+					name: "Lazada",
+					data: [
+						[Date.UTC(2015, 4,  1), (Math.random()*10)-5],
+						[Date.UTC(2015, 4,  2), (Math.random()*10)-5],
+						[Date.UTC(2015, 4,  3), (Math.random()*10)-5],
+						[Date.UTC(2015, 4,  4), (Math.random()*10)-5],
+						[Date.UTC(2015, 4,  5), (Math.random()*10)-5],
+						[Date.UTC(2015, 4,  6), (Math.random()*10)-5],
+						[Date.UTC(2015, 4,  7), (Math.random()*10)-5],
+						[Date.UTC(2015, 4,  8), (Math.random()*10)-5],
+						[Date.UTC(2015, 4,  9), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 10), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 11), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 12), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 13), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 14), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 15), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 16), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 17), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 18), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 19), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 20), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 21), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 22), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 23), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 24), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 25), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 26), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 27), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 28), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 29), (Math.random()*10)-5],
+						[Date.UTC(2015, 4, 30), (Math.random()*10)-5],
+					],
+					pointPlacement: 'on',
+					color: color_lazada,
+					image: "img/lazada_color.png"
+				}
+			]
 		});
 	});
 
