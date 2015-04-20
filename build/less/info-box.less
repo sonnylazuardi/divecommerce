@@ -25,6 +25,14 @@
       background: #fff;
     }
   }
+
+  &.active {
+    background: #fff;
+  }
+
+  &.inactive {
+    background: #ddd;
+  }
 }
 .info-box-icon {
   .border-radius(2px; 0; 2px; 0);
@@ -63,4 +71,21 @@
 
 .progress-description {
   margin: 0;
+}
+
+.info-box-small {
+  &.active {
+    background: #fff;
+  }
+
+  &.inactive {
+    background: #ddd;
+  }
+  .info-box-small-icon {
+    height: 30px;
+    display: inline-block;
+    img {
+      max-height: 30px;
+    }  
+  }
 }

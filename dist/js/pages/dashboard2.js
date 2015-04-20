@@ -196,7 +196,9 @@ $(function () {
 					return s;
 				}
 		},
-
+		legend: {
+      enabled: false,
+    },
 		series: [
 			{
 					name: "BliBli",
@@ -301,7 +303,8 @@ $(function () {
 				layout: 'vertical',
 				align: 'right',
 				verticalAlign: 'middle',
-				borderWidth: 0
+				borderWidth: 0,
+				enabled: false,
 			},
 			plotOptions: {
 				series: {
