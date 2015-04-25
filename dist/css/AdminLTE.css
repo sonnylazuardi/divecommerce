@@ -378,6 +378,27 @@ a:focus {
     padding-top: 100px!important;
   }
 }
+i.big {
+  font-size: 20px;
+  margin-top: 5px;
+  margin-right: 5px;
+}
+.padding {
+  padding: 5px 10px;
+}
+#smallMenu {
+  display: none;
+  padding-top: 55px;
+}
+#smallMenu .info-box-small-content {
+  display: inline;
+}
+.toggle {
+  margin-top: 10px;
+}
+.toggle a {
+  cursor: pointer;
+}
 /*
  * Component: Sidebar
  * ------------------
@@ -1615,6 +1636,12 @@ a:focus {
 .info-box .progress .progress-bar {
   background: #fff;
 }
+.info-box.active {
+  background: #fff;
+}
+.info-box.inactive {
+  background: #ddd;
+}
 .info-box-icon {
   border-top-left-radius: 2px;
   border-top-right-radius: 0;
@@ -1654,6 +1681,19 @@ a:focus {
 }
 .progress-description {
   margin: 0;
+}
+.info-box-small.active {
+  background: #fff;
+}
+.info-box-small.inactive {
+  background: #ddd;
+}
+.info-box-small .info-box-small-icon {
+  height: 30px;
+  display: inline-block;
+}
+.info-box-small .info-box-small-icon img {
+  max-height: 30px;
 }
 /*
  * Component: Timeline
