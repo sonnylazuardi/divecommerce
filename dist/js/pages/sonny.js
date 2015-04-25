@@ -29,7 +29,19 @@ $(function () {
               value: 0,
               width: 1,
               color: '#808080'
-          }]
+          }],
+          plotBands: [
+            {
+              from: -100,
+              to: 0,
+              color: '#ffe3e3'
+            },
+            {
+              from: 0,
+              to: 100,
+              color: '#e3ffe4'
+            }
+          ]
       },
       tooltip: {
           valueSuffix: '%'
