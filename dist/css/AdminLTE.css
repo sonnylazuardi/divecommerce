@@ -3721,8 +3721,8 @@ fieldset[disabled] .btn-vk.active {
   color: #fff !important;
 }
 .bg-gray {
-  color: #000;
-  background-color: #d2d6de !important;
+  color: #fff;
+  background-color: #333333 !important;
 }
 .bg-black {
   background-color: #111111 !important;
