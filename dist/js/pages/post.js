@@ -113,6 +113,25 @@ $(function () {
         }]
     });
 
+		$('#chart-bubble').highcharts({
+        chart: {
+            type: 'bubble',
+            zoomType: 'xy'
+        },
+
+        title: {
+            text: 'Highcharts Bubbles'
+        },
+
+        series: [{
+            data: [[90, 30, 30]]
+        }, {
+            data: [[90, 60, 60]]
+        }, {
+            data: [[90, 90, 90]]
+        }]
+    });
+
 
 
 	});
