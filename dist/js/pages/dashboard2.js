@@ -83,9 +83,9 @@ $(function () {
 	//Create the line chart
 	// salesChart.Line(salesChartData, salesChartOptions);
 
-  $('#filterdate').daterangepicker();
+	$('#filterdate').daterangepicker();
 
-  // SPIDER CHART
+	// SPIDER CHART
 	// CHARTS
 
 	// Chart-KPI
@@ -288,7 +288,7 @@ $(function () {
 					week:"Week from %A, %b %e, %Y",
 					month:"%B %Y",
 					year:"%Y"
-        }
+				}
 			},
 			yAxis: {
 				title: {
@@ -296,6 +296,18 @@ $(function () {
 				},
 				startOnTick: false,
 				endOnTick: false,
+				plotBands: [
+					{
+						from: -5,
+						to: 0,
+						color: '#ffe7e7'
+					},
+					{
+						from: 0,
+						to: 5,
+						color: '#edffe7'
+					}
+				]
 			},
 			legend: {
 				layout: 'vertical',
@@ -305,12 +317,12 @@ $(function () {
 			},
 			plotOptions: {
 				series: {
-            marker: {
-                enabled: false,
-                radius: 1
-            }
-        },
-      },
+						marker: {
+								enabled: false,
+								radius: 1
+						}
+				},
+			},
 			series: [
 				{
 					name: "BliBli",
