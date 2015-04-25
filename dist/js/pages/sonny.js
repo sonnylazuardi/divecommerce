@@ -387,10 +387,45 @@ $(function () {
       '#chart-fans',
       '#chartLikes',
       '#chartComments',
-      '#chartShares'
+      '#chartShares',    
+    ];
+    $.each(chartList, function (i, item) {
+      console.log(i+"-"+item);
+      var series = $(item).highcharts().series[id];
+
+      if (self.data('status')) {
+        series.show();
+      } else {
+        series.hide();
+      }  
+    });
+    
+  })
+
+$('.toggleBtn2').click(function() {
+    var self = $(this);
+    var id = self.data('id');
+
+    self.data('status', !self.data('status'));
+    $('#toggleBtnSmall'+id).data('status', self.data('status'));
+    $('#toggleBtn'+id).data('status', self.data('status'));
+
+    if (self.data('status')) {
+      self.find('.info-box').removeClass().addClass('info-box').addClass('active');
+      $('#toggleBtnSmall'+id).find('.info-box-small').removeClass().addClass('info-box-small').addClass('active');
+      $('#toggleBtn'+id).find('.info-box').removeClass().addClass('info-box').addClass('active');
+    } else {
+      self.find('.info-box').removeClass().addClass('info-box').addClass('inactive');
+      $('#toggleBtnSmall'+id).find('.info-box-small').removeClass().addClass('info-box-small').addClass('inactive');
+      $('#toggleBtn'+id).find('.info-box').removeClass().addClass('info-box').addClass('inactive');
+    }
+    var chartList = [
+      '#chart-line-like',
+      '#chart-line-comment'
     ];
     $.each(chartList, function (i, item) {
       var series = $(item).highcharts().series[id];
+
       if (self.data('status')) {
         series.show();
       } else {
