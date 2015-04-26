@@ -113,7 +113,7 @@ $(function () {
         }]
     });
 
-		$('#chart-bubble').highcharts({
+	$('#chart-bubble').highcharts({
         chart: {
             type: 'bubble',
             zoomType: 'xy'
@@ -124,17 +124,15 @@ $(function () {
         },
 
         series: [{
-            data: [[90, 30, 30]]
+            data: [[90, 25, 60],[95, 25, 60],[100, 25, 60]]
         }, {
-            data: [[90, 60, 60]]
+            data: [[90, 50, 60],[95, 50, 60],[100, 50, 60]]
         }, {
-            data: [[90, 90, 90]]
+            data: [[90, 75, 60],[95, 75, 60],[100, 75, 60]]
         }]
     });
 
-
-
-	});
+});
 
 
 
