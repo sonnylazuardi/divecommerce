@@ -20,7 +20,9 @@ $(function () {
             text: 'Facebook like by day',
             x: -20 //center
         },
-
+        legend: {
+            enabled: false,
+        },
         xAxis: {
             categories: ['1 Jan 2015','2 Jan 2015','3 Jan 2015','4 Jan 2015','5 Jan 2015','6 Jan 2015','7 Jan 2015','8 Jan 2015','9 Jan 2015','10 Jan 2015','11 Jan 2015','12 Jan 2015' ]
         },
@@ -36,12 +38,6 @@ $(function () {
         },
         tooltip: {
             valueSuffix: 'post'
-        },
-        legend: {
-            layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'middle',
-            borderWidth: 0
         },
         series: [{
             name: 'BliBli',
@@ -67,7 +63,9 @@ $(function () {
             text: 'Facebook comment by day',
             x: -20 //center
         },
-
+        legend: {
+            enabled: false,
+        },
         xAxis: {
             categories: ['1 Jan 2015','2 Jan 2015','3 Jan 2015','4 Jan 2015','5 Jan 2015','6 Jan 2015','7 Jan 2015','8 Jan 2015','9 Jan 2015','10 Jan 2015','11 Jan 2015','12 Jan 2015' ]
         },
@@ -83,12 +81,6 @@ $(function () {
         },
         tooltip: {
             valueSuffix: 'post'
-        },
-        legend: {
-            layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'middle',
-            borderWidth: 0
         },
         series: [{
             name: 'BliBli',
@@ -115,7 +107,9 @@ $(function () {
             text: 'Facebook share by day',
             x: -20 //center
         },
-
+        legend: {
+            enabled: false,
+        },
         xAxis: {
             categories: ['1 Jan 2015','2 Jan 2015','3 Jan 2015','4 Jan 2015','5 Jan 2015','6 Jan 2015','7 Jan 2015','8 Jan 2015','9 Jan 2015','10 Jan 2015','11 Jan 2015','12 Jan 2015' ]
         },
@@ -131,12 +125,6 @@ $(function () {
         },
         tooltip: {
             valueSuffix: 'post'
-        },
-        legend: {
-            layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'middle',
-            borderWidth: 0
         },
         series: [{
             name: 'BliBli',
