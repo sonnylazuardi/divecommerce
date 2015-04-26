@@ -172,13 +172,6 @@ $(function () {
             symbolHeight: 280
         },
 
-        tooltip: {
-            formatter: function () {
-                return '<b>' + this.series.xAxis.categories[this.point.x] + '</b> sold <br><b>' +
-                    this.point.value + '</b> items on <br><b>' + this.series.yAxis.categories[this.point.y] + '</b>';
-            }
-        },
-
         series: [{
             borderWidth: 1,
             data: [
