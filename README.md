@@ -1,2 +1,3 @@
-# ecommerce-executive-dashboard
-An executive dashboard for analyzing e commerce in Indonesia
+# divecommerce
+An interactive visualization of executive dashboard for e-commerce
+
