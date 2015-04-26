@@ -9,7 +9,6 @@ $(function () {
 
 	// Chart-KPI
 
-
 	var color_blibli = "#00c0ef";
 	var color_rakuten = "#dd4b39";
 	var color_lazada = "#f39c12";
