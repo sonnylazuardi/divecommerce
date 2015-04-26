@@ -605,7 +605,8 @@ $('.toggleBtn2').click(function() {
     }
     var chartList = [
       '#chart-line-like',
-      '#chart-line-comment'
+      '#chart-line-comment',
+      '#chart-line-share'
     ];
     $.each(chartList, function (i, item) {
       var series = $(item).highcharts().series[id];
