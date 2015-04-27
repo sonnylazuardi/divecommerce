@@ -31,22 +31,19 @@ $(function () {
               value: 0,
               width: 1,
               color: '#808080'
-          }],
-          plotBands: [
-            {
-              from: -100,
-              to: 0,
-              color: '#ffe3e3'
-            },
-            {
-              from: 0,
-              to: 100,
-              color: '#e3ffe4'
-            }
-          ]
+          }]
       },
       tooltip: {
-          valueSuffix: '%'
+          valueSuffix: '%',
+          shared: true,
+      },
+      plotOptions: {
+        series: {
+            marker: {
+                enabled: false,
+                radius: 1
+            }
+        },
       },
       xAxis: {
         type: 'datetime',
@@ -734,18 +731,38 @@ $('.toggleBtn2').click(function() {
   };
 
   function refreshData(st,en) {
-    for (var i = 0; i <= 3; i++) {
-      $('#chartEngangement').highcharts().series[i].setData(randomDate(st, en, -0.1, 0.1, true));
-    }
-    for (var i = 0; i <= 3; i++) {
-      $('#chart-fans').highcharts().series[i].setData(randomDate(st, en, -3, 5, true));
-    }
-  }
+    var cei = setInterval(function() {
+      if ($('#chartEngangement').highcharts()!=null) {
+        for (var i = 0; i <= 3; i++) {
+          $('#chartEngangement').highcharts().series[i].setData(randomDate(st, en, 0.0, 0.15, true));
+        };
+        clearInterval(cei);
+      }
+    },10);
+    var cfi = setInterval(function() {
+      if ($('#chart-fans').highcharts()!=null) {
+        for (var i = 0; i <= 3; i++) {
+          $('#chart-fans').highcharts().series[i].setData(randomDate(st, en, -3, 5, true));
+        };
+        clearInterval(cfi);
+      }
+    },10);
+  };
 
   $('.filterdate').daterangepicker({}, function(start, end) {
     var st = new Date(start);
     var en = new Date(end);
-    refreshData(st,en)
+    refreshData(st,en);
   });
-  
+
+  var initstart = "2015-03-05";
+  var initend = "2015-03-20";
+
+  var st = new Date(initstart);
+  var en = new Date(initend);
+
+  $('.filterdate').daterangepicker({ startDate: initstart, endDate: initend });
+
+  refreshData(st,en);
+
 });
