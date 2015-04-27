@@ -24,11 +24,14 @@ $(function () {
             enabled: false,
         },
         xAxis: {
-            categories: ['1 Jan 2015','2 Jan 2015','3 Jan 2015','4 Jan 2015','5 Jan 2015','6 Jan 2015','7 Jan 2015','8 Jan 2015','9 Jan 2015','10 Jan 2015','11 Jan 2015','12 Jan 2015' ]
+            title: {
+                text: 'Jan 2015'
+            },
+            categories: ['1','2','3','4','5','6','7','8','9','10','11','12' ]
         },
         yAxis: {
             title: {
-                text: 'Sum of like'
+                text: 'Total'
             },
             plotLines: [{
                 value: 0,
@@ -67,7 +70,10 @@ $(function () {
             enabled: false,
         },
         xAxis: {
-            categories: ['1 Jan 2015','2 Jan 2015','3 Jan 2015','4 Jan 2015','5 Jan 2015','6 Jan 2015','7 Jan 2015','8 Jan 2015','9 Jan 2015','10 Jan 2015','11 Jan 2015','12 Jan 2015' ]
+            title: {
+                text: 'Jan 2015'
+            },
+            categories: ['1','2','3','4','5','6','7','8','9','10','11','12' ]
         },
         yAxis: {
             title: {
@@ -111,7 +117,10 @@ $(function () {
             enabled: false,
         },
         xAxis: {
-            categories: ['1 Jan 2015','2 Jan 2015','3 Jan 2015','4 Jan 2015','5 Jan 2015','6 Jan 2015','7 Jan 2015','8 Jan 2015','9 Jan 2015','10 Jan 2015','11 Jan 2015','12 Jan 2015' ]
+            title: {
+                text: 'Jan 2015'
+            },
+            categories: ['1','2','3','4','5','6','7','8','9','10','11','12' ]
         },
         yAxis: {
             title: {

@@ -1,5 +1,6 @@
 'use strict';
 $(function () {
+
   var color_blibli = "#00c0ef";
   var color_rakuten = "#dd4b39";
   var color_lazada = "#f39c12";
@@ -546,6 +547,7 @@ $(function () {
   });
 
   $('.toggleBtn').click(function() {
+
     var self = $(this);
     var id = self.data('id');
 
@@ -681,4 +683,54 @@ $('.toggleBtn2').click(function() {
   //       data: [973, 914, 4054, 732, 34]
   //   }]
   // });
+  
+
+  $('.filterdate').daterangepicker({}, function(start, end) {
+    var a = new Date(start);
+    var b = new Date(end);
+    var baru = [];
+    var test = [
+      [Date.UTC(2015, 4,  1), (Math.random()*10)-5],
+      [Date.UTC(2015, 4,  2), (Math.random()*10)-5],
+      [Date.UTC(2015, 4,  3), (Math.random()*10)-5],
+      [Date.UTC(2015, 4,  4), (Math.random()*10)-5],
+      [Date.UTC(2015, 4,  5), (Math.random()*10)-5],
+      [Date.UTC(2015, 4,  6), (Math.random()*10)-5],
+      [Date.UTC(2015, 4,  7), (Math.random()*10)-5],
+      [Date.UTC(2015, 4,  8), (Math.random()*10)-5],
+      [Date.UTC(2015, 4,  9), (Math.random()*10)-5],
+      [Date.UTC(2015, 4, 10), (Math.random()*10)-5],
+      [Date.UTC(2015, 4, 11), (Math.random()*10)-5],
+      [Date.UTC(2015, 4, 12), (Math.random()*10)-5],
+      [Date.UTC(2015, 4, 13), (Math.random()*10)-5],
+      [Date.UTC(2015, 4, 14), (Math.random()*10)-5],
+      [Date.UTC(2015, 4, 15), (Math.random()*10)-5],
+    ];
+
+    var rangeDate = moment().range(a, b);
+    
+
+    // console.log(test);
+    // console.log(baru);
+    // console.log(moment().range());
+    // var a = moment(start).format('YYYY-MM-DD');
+    // var b = moment(end).format('YYYY-MM-DD');
+    // alert(a + ", " + b);
+
+    /*TESTING*/
+    for (var i = 0; i <= 3; i++) {
+      baru = [];
+      rangeDate.by('days', function(moment) {
+        baru.push([
+          moment.valueOf(), (Math.random()*10)-5
+        ]);
+        // console.log(moment.format('YYYY-MM-DD'));
+      });
+      $('#chartEngangement').highcharts().series[i].setData(baru);  
+    }
+
+    /*TESTING*/
+
+  });
+  
 });

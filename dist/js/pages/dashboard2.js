@@ -1,8 +1,7 @@
-'use strict';
+// 'use strict';
 $(function () {
 
 	$('.popover').popover();
-  $('.filterdate').daterangepicker();
 
   // SPIDER CHART
 	// CHARTS
