@@ -12,7 +12,7 @@ $(function () {
             '#333','pink'
             ],
             title: {
-                text: 'E-Commerce User Distribution in Indonesia'
+                text: ''
             },
             xAxis: [{
                 categories: categories,
@@ -107,7 +107,7 @@ $(function () {
       },
       xAxis: {
           categories: [
-              "Anak-anak(<12)","Remaja(12-17)","Dewasa Muda(18-29)","Dewasa(>30)"
+              "Children(<12)","Teenager(12-17)","Young Adult(18-29)","Adult(>30)"
           ],
           crosshair: true
       },

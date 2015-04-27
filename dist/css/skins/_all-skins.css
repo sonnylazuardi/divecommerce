@@ -154,10 +154,6 @@
  * -----------
  */
 /* skin-black navbar */
-.skin-black .main-header {
-  -webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.05);
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.05);
-}
 .skin-black .main-header .navbar-toggle {
   color: #333;
 }
@@ -203,16 +199,15 @@
   border-right-width: 0;
 }
 .skin-black .main-header > .logo {
-  background-color: #ffffff;
-  color: #333333;
+  background-color: #222222;
+  color: #ffffff;
   border-bottom: 0px solid transparent;
-  border-right: 1px solid #eee;
 }
 .skin-black .main-header > .logo > a {
-  color: #333333;
+  color: #ffffff;
 }
 .skin-black .main-header > .logo:hover {
-  background: #fcfcfc;
+  background: #1f1f1f;
 }
 @media (max-width: 767px) {
   .skin-black .main-header > .logo {
