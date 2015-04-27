@@ -1,4 +1,5 @@
 'use strict';
+
 $(function () {
 
   var color_blibli = "#00c0ef";
@@ -30,22 +31,19 @@ $(function () {
               value: 0,
               width: 1,
               color: '#808080'
-          }],
-          plotBands: [
-            {
-              from: -100,
-              to: 0,
-              color: '#ffe3e3'
-            },
-            {
-              from: 0,
-              to: 100,
-              color: '#e3ffe4'
-            }
-          ]
+          }]
       },
       tooltip: {
-          valueSuffix: '%'
+          valueSuffix: '%',
+          shared: true,
+      },
+      plotOptions: {
+        series: {
+            marker: {
+                enabled: false,
+                radius: 1
+            }
+        },
       },
       xAxis: {
         type: 'datetime',
@@ -683,54 +681,88 @@ $('.toggleBtn2').click(function() {
   //       data: [973, 914, 4054, 732, 34]
   //   }]
   // });
-  
+
+  function randomDate(start_date, end_date, min, max, floating) {
+
+    console.log("randomDate");
+
+    var max_velocity = 0.2;
+    var slope_prob = 0.2;
+
+    var ret = [];
+    var rangeDate = moment().range(start_date, end_date);
+    var state_up = false;
+    var value = min + ((max-min)/4) + (Math.random()*((max-min)/2));
+    if (!floating)
+        value = Math.floor(value);
+
+    rangeDate.by('days', function(moment) {
+
+      console.log(value);
+
+      var prob_up = 1-((value-min)/(max-min));
+      if (Math.random()<prob_up) {
+        if ((state_up)||((!state_up)&&(Math.random()<=slope_prob))) {
+          state_up = true;
+        }
+      } else {
+        if ((!state_up)||((state_up)&&(Math.random()<=slope_prob))) {
+          state_up = false;
+        }
+      }
+
+      var delta = 0;
+      if (state_up) {
+        delta = (max-value)*Math.random()*max_velocity;
+      }
+      else {
+        delta = ((value-min)*Math.random()*max_velocity)*-1; 
+      }
+      if (!floating)
+        delta = Math.floor(delta);
+
+      value += delta;
+
+      ret.push([
+        moment.valueOf(), value
+      ]);
+    });
+    return ret;
+  };
+
+  function refreshData(st,en) {
+    var cei = setInterval(function() {
+      if ($('#chartEngangement').highcharts()!=null) {
+        for (var i = 0; i <= 3; i++) {
+          $('#chartEngangement').highcharts().series[i].setData(randomDate(st, en, 0.0, 0.15, true));
+        };
+        clearInterval(cei);
+      }
+    },10);
+    var cfi = setInterval(function() {
+      if ($('#chart-fans').highcharts()!=null) {
+        for (var i = 0; i <= 3; i++) {
+          $('#chart-fans').highcharts().series[i].setData(randomDate(st, en, -3, 5, true));
+        };
+        clearInterval(cfi);
+      }
+    },10);
+  };
 
   $('.filterdate').daterangepicker({}, function(start, end) {
-    var a = new Date(start);
-    var b = new Date(end);
-    var baru = [];
-    var test = [
-      [Date.UTC(2015, 4,  1), (Math.random()*10)-5],
-      [Date.UTC(2015, 4,  2), (Math.random()*10)-5],
-      [Date.UTC(2015, 4,  3), (Math.random()*10)-5],
-      [Date.UTC(2015, 4,  4), (Math.random()*10)-5],
-      [Date.UTC(2015, 4,  5), (Math.random()*10)-5],
-      [Date.UTC(2015, 4,  6), (Math.random()*10)-5],
-      [Date.UTC(2015, 4,  7), (Math.random()*10)-5],
-      [Date.UTC(2015, 4,  8), (Math.random()*10)-5],
-      [Date.UTC(2015, 4,  9), (Math.random()*10)-5],
-      [Date.UTC(2015, 4, 10), (Math.random()*10)-5],
-      [Date.UTC(2015, 4, 11), (Math.random()*10)-5],
-      [Date.UTC(2015, 4, 12), (Math.random()*10)-5],
-      [Date.UTC(2015, 4, 13), (Math.random()*10)-5],
-      [Date.UTC(2015, 4, 14), (Math.random()*10)-5],
-      [Date.UTC(2015, 4, 15), (Math.random()*10)-5],
-    ];
-
-    var rangeDate = moment().range(a, b);
-    
-
-    // console.log(test);
-    // console.log(baru);
-    // console.log(moment().range());
-    // var a = moment(start).format('YYYY-MM-DD');
-    // var b = moment(end).format('YYYY-MM-DD');
-    // alert(a + ", " + b);
-
-    /*TESTING*/
-    for (var i = 0; i <= 3; i++) {
-      baru = [];
-      rangeDate.by('days', function(moment) {
-        baru.push([
-          moment.valueOf(), (Math.random()*10)-5
-        ]);
-        // console.log(moment.format('YYYY-MM-DD'));
-      });
-      $('#chartEngangement').highcharts().series[i].setData(baru);  
-    }
-
-    /*TESTING*/
-
+    var st = new Date(start);
+    var en = new Date(end);
+    refreshData(st,en);
   });
-  
+
+  var initstart = "2015-03-05";
+  var initend = "2015-03-20";
+
+  var st = new Date(initstart);
+  var en = new Date(initend);
+
+  $('.filterdate').daterangepicker({ startDate: initstart, endDate: initend });
+
+  refreshData(st,en);
+
 });
