@@ -259,7 +259,7 @@ $(function () {
                 type: 'bar'
             },
             colors: [
-            'blue','pink'
+            '#333','pink'
             ],
             title: {
                 text: 'E-Commerce User Distribution in Indonesia'

@@ -20,7 +20,7 @@
 		<link href="dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
 		<!-- AdminLTE Skins. Choose a skin from the css/skins 
 				 folder instead of downloading all of them to reduce the load. -->
-		<link href="dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
+		<link href="dist/css/skins/skin-black.min.css" rel="stylesheet" type="text/css" />
 
 		<link href="dist/css/style.css" rel="stylesheet" type="text/css" />
 
@@ -173,14 +173,14 @@
 					<!-- /.search form -->
 					<!-- sidebar menu: : style can be found in sidebar.less -->
 					<ul class="sidebar-menu">
+						<li>
+							<a href="index.html"><i class="ion ion-ios-home"></i> Dashboard</a></li>
+						</li>
+						<li>
+							<a href="profile.html"><i class="ion ion-person-stalker"></i> Consumer Profile</a></li>
+						</li>
 						<li class="active">
-							<a href="index.html"><i class="fa fa-circle-o"></i> Dashboard</a></li>
-						</li>
-						<li>
-							<a href="profile.html"><i class="fa fa-circle-o"></i> Consumer Profile</a></li>
-						</li>
-						<li>
-							<a href="post.html"><i class="fa fa-circle-o"></i> Post Analysis</a></li>
+							<a href="post.html"><i class="ion ion-compose"></i> Post Analysis</a></li>
 						</li>
 					</ul>
 				</section>
@@ -268,7 +268,7 @@
 
 					<div class="main-content">					
 						<div class="row">
-							<div class="col-md-6">
+							<div class="col-md-4">
 								<div class="box">
 									<div class="box-header with-border">
 										<h3 class="box-title">Like Number</h3>
@@ -283,17 +283,17 @@
 												<div class="chart-responsive">
 													<!-- Sales Chart Canvas -->
 													<!-- <canvas id="salesChart" height="180"></canvas> -->
-													<div id="chart-line-like" style="min-width: 400px; max-width: 600px; height: 300px; margin: 0 auto"></div>
+													<div id="chart-line-like" style="width: 100%; height: 300px; margin: 0 auto"></div>
 												</div><!-- /.chart-responsive -->
 											</div><!-- /.col -->
 										</div><!-- /.row -->
 									</div><!-- ./box-body -->
 								</div><!-- /.box -->
 							</div><!-- /.col -->
-							<div class="col-md-6">
+							<div class="col-md-4">
 								<div class="box">
 									<div class="box-header with-border">
-										<h3 class="box-title">Fans</h3>
+										<h3 class="box-title">Comment Number</h3>
 										<div class="box-tools pull-right">
 											<button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
 											<button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
@@ -305,7 +305,30 @@
 												<div class="chart-responsive">
 													<!-- Sales Chart Canvas -->
 													<!-- <canvas id="salesChart" height="180"></canvas> -->
-													<div id="chart-line-comment" style="min-width: 400px; max-width: 600px; height: 300px; margin: 0 auto"></div>
+													<div id="chart-line-comment" style="width: 100%; height: 300px; margin: 0 auto"></div>
+												</div><!-- /.chart-responsive -->
+											</div><!-- /.col -->
+										</div><!-- /.row -->
+									</div><!-- ./box-body -->
+								</div><!-- /.box -->
+							</div><!-- /.col -->
+
+							<div class="col-md-4">
+								<div class="box">
+									<div class="box-header with-border">
+										<h3 class="box-title">Share Number</h3>
+										<div class="box-tools pull-right">
+											<button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+											<button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+										</div>
+									</div><!-- /.box-header -->
+									<div class="box-body">
+										<div class="row">
+											<div class="col-md-12">
+												<div class="chart-responsive">
+													<!-- Sales Chart Canvas -->
+													<!-- <canvas id="salesChart" height="180"></canvas> -->
+													<div id="chart-line-share" style="width: 100%; height: 300px; margin: 0 auto"></div>
 												</div><!-- /.chart-responsive -->
 											</div><!-- /.col -->
 										</div><!-- /.row -->
@@ -330,7 +353,7 @@
 												<div class="chart-responsive">
 													<!-- Sales Chart Canvas -->
 													<!-- <canvas id="salesChart" height="180"></canvas> -->
-													<div id="chart-bubble" style="min-width: 400px; max-width: 600px; height: 300px; margin: 0 auto"></div>
+													<div id="chart-bubble" style="width: 100%; height: 500px; margin: 0 auto"></div>
 												</div><!-- /.chart-responsive -->
 											</div><!-- /.col -->
 										</div><!-- /.row -->
@@ -361,6 +384,7 @@
 		<!-- HICH CHART -->
 		<script src="dist/js/highcharts.js"></script>
 		<script src="dist/js/highcharts-more.js"></script>
+		<script src="dist/js/highcharts-heatmap.js"></script>
 		<!-- FastClick -->
 		<script src='plugins/fastclick/fastclick.min.js'></script>
 		<!-- AdminLTE App -->

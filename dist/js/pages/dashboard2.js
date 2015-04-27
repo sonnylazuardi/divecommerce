@@ -1,14 +1,12 @@
-'use strict';
+// 'use strict';
 $(function () {
 
 	$('.popover').popover();
-  $('.filterdate').daterangepicker();
 
   // SPIDER CHART
 	// CHARTS
 
 	// Chart-KPI
-
 
 	var color_blibli = "#00c0ef";
 	var color_rakuten = "#dd4b39";
