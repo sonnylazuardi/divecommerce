@@ -129,22 +129,22 @@ $(function () {
       series: [{
           name: "BliBli",
           color: "#00c0ef",
-          data: [49.9,20,21,22]
+          data: [5.5,20,40,75]
 
       }, {
           name: "Rakuten",
           color: "#dd4b39",
-          data: [83.6,21,22,12]
+          data: [2.0,75,22,12]
 
       }, {
           name: "Tokopedia",
           color: "#00a65a",
-          data: [48.9,23,43,21]
+          data: [3.1,40,50,21]
 
       }, {
           name: "Lazada",
           color: "#f39c12",
-          data: [42.4,23,14,56]
+          data: [4.0,42.1,80.4,60]
 
       }]
         // labels: ["Anak-anak(<12)","Remaja(12-17)","Dewasa Muda(18-29)","Dewasa(>30)"]
