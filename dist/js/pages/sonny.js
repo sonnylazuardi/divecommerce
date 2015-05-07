@@ -150,6 +150,7 @@ $(function () {
 
   $('#chartLikes').highcharts({
       chart: {
+        backgroundColor: '#ddd',
           type: 'column'
       },
       title: {
@@ -209,6 +210,7 @@ $(function () {
   });
   $('#chartComments').highcharts({
       chart: {
+        backgroundColor: '#ddd',
           type: 'column'
       },
       title: {
@@ -268,6 +270,7 @@ $(function () {
   });
   $('#chartShares').highcharts({
       chart: {
+        backgroundColor: '#ddd',
           type: 'column'
       },
       title: {
@@ -328,7 +331,7 @@ $(function () {
 
   $('#chartMedia').highcharts({
       chart: {
-        backgroundColor: '#333',
+        backgroundColor: '#ddd',
         type: 'column'
       },
       title: {
@@ -347,9 +350,9 @@ $(function () {
           categories: [
               'Total',
           ],
-          gridLineColor: "#555",
-          lineColor: '#555',
-          tickColor: '#555',
+          gridLineColor: "#eee",
+          lineColor: '#eee',
+          tickColor: '#eee',
           crosshair: true
       },
       yAxis: {
@@ -357,9 +360,9 @@ $(function () {
           enabled: false,
         },
           min: 0,
-          gridLineColor: "#555",
-          lineColor: '#555',
-          tickColor: '#555',
+          gridLineColor: "#eee",
+          lineColor: '#eee',
+          tickColor: '#eee',
           title: {
               text: ''
           }
@@ -398,7 +401,7 @@ $(function () {
 
   $('#chartLink').highcharts({
       chart: {
-        backgroundColor: '#333',
+        backgroundColor: '#ddd',
         type: 'column'
       },
       title: {
@@ -417,9 +420,9 @@ $(function () {
           categories: [
               'Total',
           ],
-          gridLineColor: "#555",
-          lineColor: '#555',
-          tickColor: '#555',
+          gridLineColor: "#eee",
+          lineColor: '#eee',
+          tickColor: '#eee',
           crosshair: true
       },
       yAxis: {
@@ -427,9 +430,9 @@ $(function () {
           enabled: false,
         },
           min: 0,
-          gridLineColor: "#555",
-          lineColor: '#555',
-          tickColor: '#555',
+          gridLineColor: "#eee",
+          lineColor: '#eee',
+          tickColor: '#eee',
           title: {
               text: ''
           }
@@ -468,7 +471,7 @@ $(function () {
 
   $('#chartStatus').highcharts({
       chart: {
-        backgroundColor: '#333',
+        backgroundColor: '#ddd',
         type: 'column'
       },
       title: {
@@ -487,9 +490,9 @@ $(function () {
           categories: [
               'Total',
           ],
-          gridLineColor: "#555",
-          lineColor: '#555',
-          tickColor: '#555',
+          gridLineColor: "#eee",
+          lineColor: '#eee',
+          tickColor: '#eee',
           crosshair: true
       },
       yAxis: {
@@ -497,9 +500,9 @@ $(function () {
           enabled: false,
         },
           min: 0,
-          gridLineColor: "#555",
-          lineColor: '#555',
-          tickColor: '#555',
+          gridLineColor: "#eee",
+          lineColor: '#eee',
+          tickColor: '#eee',
           title: {
               text: ''
           }
