@@ -611,6 +611,11 @@ $('.toggleBtn2').click(function() {
       '#chart-line-comment',
       '#chart-line-share'
     ];
+    if (self.data('status')) {
+      $('#chart-'+id).show();
+    } else {
+      $('#chart-'+id).hide();
+    }
     $.each(chartList, function (i, item) {
       var series = $(item).highcharts().series[id];
 

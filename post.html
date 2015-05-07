@@ -91,7 +91,7 @@
 	          <div class="col-xs-9">
 	            <div class="row">
 	              <div class="col-xs-3">
-	                <a class="toggleBtn" data-id="0" data-status="true" id="toggleBtnSmall0">
+	                <a class="toggleBtn2" data-id="0" data-status="true" id="toggleBtnSmall0">
 	                  <div class="info-box-small">
 	                    <span class="info-box-small-icon bg-aqua"><img src="img/blibli.png" /></span>
 	                    <div class="info-box-small-content">
@@ -101,7 +101,7 @@
 	                </a>
 	              </div><!-- /.col -->
 	              <div class="col-xs-3">
-	                <a class="toggleBtn" data-id="1" data-status="true" id="toggleBtnSmall1">
+	                <a class="toggleBtn2" data-id="1" data-status="true" id="toggleBtnSmall1">
 	                  <div class="info-box-small">
 	                    <span class="info-box-small-icon bg-red"><img src="img/rakuten.png" /></span>
 	                    <div class="info-box-small-content">
@@ -114,7 +114,7 @@
 	              <!-- fix for small devices only -->
 	              <div class="clearfix visible-sm-block"></div>
 	              <div class="col-xs-3">
-	                <a class="toggleBtn" data-id="2" data-status="true" id="toggleBtnSmall2">
+	                <a class="toggleBtn2" data-id="2" data-status="true" id="toggleBtnSmall2">
 	                  <div class="info-box-small">
 	                    <span class="info-box-small-icon bg-green"><img src="img/tokopedia.png" /></span>
 	                    <div class="info-box-small-content">
@@ -124,7 +124,7 @@
 	                </a>
 	              </div><!-- /.col -->
 	              <div class="col-xs-3">
-	                <a class="toggleBtn" data-id="3" data-status="true" id="toggleBtnSmall3">
+	                <a class="toggleBtn2" data-id="3" data-status="true" id="toggleBtnSmall3">
 	                  <div class="info-box-small">
 	                    <span class="info-box-small-icon bg-yellow"><img src="img/lazada.png" /></span>
 	                    <div class="info-box-small-content">
@@ -300,50 +300,60 @@
  											<button type="button" class="btn btn-box-tool" data-placement="auto" data-trigger="focus" data-toggle="popover" data-content="This graph shows the number of user interactivity per day during a selected time range." data-html='true'><i class="fa fa-info-circle"></i></button>    										
 										</div>
 									</div><!-- /.box-header -->
-									<div class="box-body">
-										<div class="row">
-											<div class="col-md-12">
-												<div class="chart-responsive">
-													<!-- Sales Chart Canvas -->
-													<!-- <canvas id="salesChart" height="180"></canvas> -->
-													<div id="chart-bubble" style="width: 100%; height: 500px; margin: 0 auto"></div>
-												</div><!-- /.chart-responsive -->
-											</div><!-- /.col -->
-										</div><!-- /.row -->
-									</div><!-- ./box-body -->
-									<div class="box-body">
-										<div class="row">
-											<div class="col-md-12">
-												<div class="chart-responsive">
-													<!-- Sales Chart Canvas -->
-													<!-- <canvas id="salesChart" height="180"></canvas> -->
-													<div id="chart-bubble2" style="width: 100%; height: 500px; margin: 0 auto"></div>
-												</div><!-- /.chart-responsive -->
-											</div><!-- /.col -->
-										</div><!-- /.row -->
-									</div><!-- ./box-body -->
-									<div class="box-body">
-										<div class="row">
-											<div class="col-md-12">
-												<div class="chart-responsive">
-													<!-- Sales Chart Canvas -->
-													<!-- <canvas id="salesChart" height="180"></canvas> -->
-													<div id="chart-bubble3" style="width: 100%; height: 500px; margin: 0 auto"></div>
-												</div><!-- /.chart-responsive -->
-											</div><!-- /.col -->
-										</div><!-- /.row -->
-									</div><!-- ./box-body -->
-									<div class="box-body">
-										<div class="row">
-											<div class="col-md-12">
-												<div class="chart-responsive">
-													<!-- Sales Chart Canvas -->
-													<!-- <canvas id="salesChart" height="180"></canvas> -->
-													<div id="chart-bubble4" style="width: 100%; height: 500px; margin: 0 auto"></div>
-												</div><!-- /.chart-responsive -->
-											</div><!-- /.col -->
-										</div><!-- /.row -->
-									</div><!-- ./box-body -->
+									<div class="row">
+										<div class="col-md-6" id="chart-0">
+											<div class="box-body">
+												<div class="row">
+													<div class="col-md-12">
+														<div class="chart-responsive">
+															<!-- Sales Chart Canvas -->
+															<!-- <canvas id="salesChart" height="180"></canvas> -->
+															<div id="chart-bubble" style="width: 100%; height: 250px; margin: 0 auto"></div>
+														</div><!-- /.chart-responsive -->
+													</div><!-- /.col -->
+												</div><!-- /.row -->
+											</div><!-- ./box-body -->
+										</div>
+										<div class="col-md-6" id="chart-1">
+											<div class="box-body">
+												<div class="row">
+													<div class="col-md-12">
+														<div class="chart-responsive">
+															<!-- Sales Chart Canvas -->
+															<!-- <canvas id="salesChart" height="180"></canvas> -->
+															<div id="chart-bubble2" style="width: 100%; height: 250px; margin: 0 auto"></div>
+														</div><!-- /.chart-responsive -->
+													</div><!-- /.col -->
+												</div><!-- /.row -->
+											</div><!-- ./box-body -->
+										</div>
+										<div class="col-md-6" id="chart-2">
+											<div class="box-body">
+												<div class="row">
+													<div class="col-md-12">
+														<div class="chart-responsive">
+															<!-- Sales Chart Canvas -->
+															<!-- <canvas id="salesChart" height="180"></canvas> -->
+															<div id="chart-bubble3" style="width: 100%; height: 250px; margin: 0 auto"></div>
+														</div><!-- /.chart-responsive -->
+													</div><!-- /.col -->
+												</div><!-- /.row -->
+											</div><!-- ./box-body -->
+										</div>
+										<div class="col-md-6" id="chart-3">
+											<div class="box-body">
+												<div class="row">
+													<div class="col-md-12">
+														<div class="chart-responsive">
+															<!-- Sales Chart Canvas -->
+															<!-- <canvas id="salesChart" height="180"></canvas> -->
+															<div id="chart-bubble4" style="width: 100%; height: 250px; margin: 0 auto"></div>
+														</div><!-- /.chart-responsive -->
+													</div><!-- /.col -->
+												</div><!-- /.row -->
+											</div><!-- ./box-body -->
+										</div>
+									</div>
 								</div><!-- /.box -->
 							</div><!-- /.col -->							
 						</div><!-- /.row -->
