@@ -45,6 +45,7 @@ body {
 .content-wrapper, 
 .right-side,
 .main-footer {    
+  font-family: 'Montserrat', 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   .transition-transform(@transition-speed @transition-fn);
   .transition(margin-left @transition-speed @transition-fn);
   margin-left: @sidebar-width;
@@ -85,21 +86,21 @@ body {
 
 /* Fixed layout */
 .fixed {
-  .main-header,
+  // .main-header,
   .main-sidebar,
   .left-side {
     position: fixed;
   }
-  .main-header {
-    top: 0;
-    right: 0;
-    left: 0;
-  }
+  // .main-header {
+  //   top: 0;
+  //   right: 0;
+  //   left: 0;
+  // }
   .content-wrapper,
   .right-side {
-    padding-top: 50px;
+    // padding-top: 50px;
     @media (max-width: @screen-header-collapse) {
-      padding-top: 100px;
+      // padding-top: 100px;
     }
   }
   &.layout-boxed {
@@ -153,4 +154,8 @@ a:focus {
     display: block;
     margin-top: 5px;
   }
+}
+
+.box-pane-right {
+  font-size: 13px;
 }

@@ -17,7 +17,7 @@ $(function () {
 
 	$('#chart-line-like').highcharts({
         title: {
-            text: 'Facebook like by day',
+            text: '',
             x: -20 //center
         },
         legend: {
@@ -63,7 +63,7 @@ $(function () {
 
 	$('#chart-line-comment').highcharts({
         title: {
-            text: 'Facebook comment by day',
+            text: '',
             x: -20 //center
         },
         legend: {
@@ -77,7 +77,7 @@ $(function () {
         },
         yAxis: {
             title: {
-                text: 'Sum of like'
+                text: ''
             },
             plotLines: [{
                 value: 0,
@@ -110,7 +110,7 @@ $(function () {
 
     $('#chart-line-share').highcharts({
         title: {
-            text: 'Facebook share by day',
+            text: '',
             x: -20 //center
         },
         legend: {
@@ -124,7 +124,7 @@ $(function () {
         },
         yAxis: {
             title: {
-                text: 'Sum of share'
+                text: ''
             },
             plotLines: [{
                 value: 0,

@@ -4,6 +4,8 @@
 		<meta charset="UTF-8">
 		<title>DiveCommerce | Dashboard</title>
 		<meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+
+		<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 		<!-- Bootstrap 3.3.2 -->
 		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 		<!-- Font Awesome Icons -->
@@ -34,123 +36,18 @@
 	<body class="skin-black fixed">
 		<div class="wrapper">
 			
-			<header class="main-header">
-				<!-- Logo -->
-				<a href="index2.html" class="logo"><b>Dive</b>Commerce</a>
-				<!-- Header Navbar: style can be found in header.less -->
-				<nav class="navbar navbar-static-top" role="navigation">
-					<!-- Sidebar toggle button-->
-					<a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-						<span class="sr-only">Toggle navigation</span>
-					</a>
-					<!-- Navbar Right Menu -->
-					<div class="navbar-custom-menu">
-						<ul class="nav navbar-nav">
-							<!-- User Account: style can be found in dropdown.less -->
-							<li class="dropdown user user-menu">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-									<img src="dist/img/david.jpg" class="user-image" alt="User Image"/>
-									<span class="hidden-xs">David Setyanugraha</span>
-								</a>
-								<ul class="dropdown-menu">
-									<!-- User image -->
-									<li class="user-header">
-										<img src="dist/img/david.jpg" class="img-circle" alt="User Image" />
-										<p>
-											David Setyanugraha - Web Developer
-											<small>Member since Nov. 2012</small>
-										</p>
-									</li>
-									<!-- Menu Body -->
-									<li class="user-body">
-										<div class="col-xs-4 text-center">
-											<a href="#">Followers</a>
-										</div>
-										<div class="col-xs-4 text-center">
-											<a href="#">Sales</a>
-										</div>
-										<div class="col-xs-4 text-center">
-											<a href="#">Friends</a>
-										</div>
-									</li>
-									<!-- Menu Footer-->
-									<li class="user-footer">
-										<div class="pull-left">
-											<a href="#" class="btn btn-default btn-flat">Profile</a>
-										</div>
-										<div class="pull-right">
-											<a href="#" class="btn btn-default btn-flat">Sign out</a>
-										</div>
-									</li>
-								</ul>
-							</li>
-						</ul>
-					</div>
-					<div class="padding toggle" id="smallMenu">
-						<div class="row">
-							<div class="col-xs-9">
-								<div class="row">
-									<div class="col-xs-3">
-										<a class="toggleBtn" data-id="0" data-status="true" id="toggleBtnSmall0">
-											<div class="info-box-small">
-												<span class="info-box-small-icon bg-aqua"><img src="img/blibli.png" /></span>
-												<div class="info-box-small-content">
-													<span class="info-box-small-text">BliBli</span>
-												</div><!-- /.info-box-small-content -->
-											</div><!-- /.info-box-small -->
-										</a>
-									</div><!-- /.col -->
-									<div class="col-xs-3">
-										<a class="toggleBtn" data-id="1" data-status="true" id="toggleBtnSmall1">
-											<div class="info-box-small">
-												<span class="info-box-small-icon bg-red"><img src="img/rakuten.png" /></span>
-												<div class="info-box-small-content">
-													<span class="info-box-small-text">Rakuten</span>
-												</div><!-- /.info-box-small-content -->
-											</div><!-- /.info-box-small -->
-										</a>
-									</div><!-- /.col -->
+			<div class="main-header">
+				<a href="index.html" class="logo"><b>Dive</b>Commerce</a>
+			</div>
 
-									<!-- fix for small devices only -->
-									<div class="clearfix visible-sm-block"></div>
-									<div class="col-xs-3">
-										<a class="toggleBtn" data-id="2" data-status="true" id="toggleBtnSmall2">
-											<div class="info-box-small">
-												<span class="info-box-small-icon bg-green"><img src="img/tokopedia.png" /></span>
-												<div class="info-box-small-content">
-													<span class="info-box-small-text">Tokopedia</span>
-												</div><!-- /.info-box-small-content -->
-											</div><!-- /.info-box-small -->
-										</a>
-									</div><!-- /.col -->
-									<div class="col-xs-3">
-										<a class="toggleBtn" data-id="3" data-status="true" id="toggleBtnSmall3">
-											<div class="info-box-small">
-												<span class="info-box-small-icon bg-yellow"><img src="img/lazada.png" /></span>
-												<div class="info-box-small-content">
-													<span class="info-box-small-text">Lazada</span>
-												</div><!-- /.info-box-small-content -->
-											</div><!-- /.info-box-small -->
-										</a>
-									</div><!-- /.col -->
-								</div><!-- /.row -->
-							</div>
-							<div class="col-xs-3">
-								<div class="input-group">
-	                <div class="input-group-addon filter">
-	                  <i class="fa fa-calendar"></i>
-	                </div>
-	                <input type="text" class="form-control pull-right filterdate" value="04/19/2015 - 04/30/2015" />
-	              </div><!-- /.input group -->
-							</div>
-						</div>
-					</div>
-				</nav>
-			</header>
 			<!-- Left side column. contains the logo and sidebar -->
 			<aside class="main-sidebar">
 				<!-- sidebar: style can be found in sidebar.less -->
+				
 				<section class="sidebar">
+
+					<div class="sidebar-form"></div>
+
 					<!-- Sidebar user panel -->
 					<div class="user-panel">
 						<div class="pull-left image">
@@ -162,14 +59,8 @@
 						</div>
 					</div>
 					<!-- search form -->
-					<form action="#" method="get" class="sidebar-form">
-						<div class="input-group">
-							<input type="text" name="q" class="form-control" placeholder="Search..."/>
-							<span class="input-group-btn">
-								<button type='submit' name='search' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i></button>
-							</span>
-						</div>
-					</form>
+					<div class="sidebar-form"></div>
+					
 					<!-- /.search form -->
 					<!-- sidebar menu: : style can be found in sidebar.less -->
 					<ul class="sidebar-menu">
@@ -177,25 +68,90 @@
 							<a href="index.html"><i class="ion ion-ios-home"></i> Dashboard</a></li>
 						</li>
 						<li>
-							<a href="profile.html"><i class="ion ion-person-stalker"></i> Consumer Profile</a></li>
+							<a href="profile.html"><i class="ion ion-person-stalker"></i> Customer Profile</a></li>
 						</li>
 						<li class="active">
 							<a href="post.html"><i class="ion ion-compose"></i> Post Analysis</a></li>
 						</li>
 					</ul>
+
+					<div class="sidebar-form">
+						<div style="padding: 10px; color: #888; font-size: 12px">
+							Disclaimer: the data is generated for visualization purpose
+						</div>
+					</div>
 				</section>
 				<!-- /.sidebar -->
 			</aside>
 
 			<!-- Content Wrapper. Contains page content -->
 			<div class="content-wrapper">
+				<div class="padding toggle" id="smallMenu">
+	        <div class="row">
+	          <div class="col-xs-9">
+	            <div class="row">
+	              <div class="col-xs-3">
+	                <a class="toggleBtn" data-id="0" data-status="true" id="toggleBtnSmall0">
+	                  <div class="info-box-small">
+	                    <span class="info-box-small-icon bg-aqua"><img src="img/blibli.png" /></span>
+	                    <div class="info-box-small-content">
+	                      <span class="info-box-small-text">BliBli</span>
+	                    </div><!-- /.info-box-small-content -->
+	                  </div><!-- /.info-box-small -->
+	                </a>
+	              </div><!-- /.col -->
+	              <div class="col-xs-3">
+	                <a class="toggleBtn" data-id="1" data-status="true" id="toggleBtnSmall1">
+	                  <div class="info-box-small">
+	                    <span class="info-box-small-icon bg-red"><img src="img/rakuten.png" /></span>
+	                    <div class="info-box-small-content">
+	                      <span class="info-box-small-text">Rakuten</span>
+	                    </div><!-- /.info-box-small-content -->
+	                  </div><!-- /.info-box-small -->
+	                </a>
+	              </div><!-- /.col -->
+
+	              <!-- fix for small devices only -->
+	              <div class="clearfix visible-sm-block"></div>
+	              <div class="col-xs-3">
+	                <a class="toggleBtn" data-id="2" data-status="true" id="toggleBtnSmall2">
+	                  <div class="info-box-small">
+	                    <span class="info-box-small-icon bg-green"><img src="img/tokopedia.png" /></span>
+	                    <div class="info-box-small-content">
+	                      <span class="info-box-small-text">Tokopedia</span>
+	                    </div><!-- /.info-box-small-content -->
+	                  </div><!-- /.info-box-small -->
+	                </a>
+	              </div><!-- /.col -->
+	              <div class="col-xs-3">
+	                <a class="toggleBtn" data-id="3" data-status="true" id="toggleBtnSmall3">
+	                  <div class="info-box-small">
+	                    <span class="info-box-small-icon bg-yellow"><img src="img/lazada.png" /></span>
+	                    <div class="info-box-small-content">
+	                      <span class="info-box-small-text">Lazada</span>
+	                    </div><!-- /.info-box-small-content -->
+	                  </div><!-- /.info-box-small -->
+	                </a>
+	              </div><!-- /.col -->
+	            </div><!-- /.row -->
+	          </div>
+	          <div class="col-xs-3">
+	            <div class="input-group">
+	              <div class="input-group-addon filter">
+	                <i class="fa fa-calendar"></i>
+	              </div>
+	              <input type="text" class="form-control pull-right filterdate" value="04/19/2015 - 04/30/2015" id="filter1" />
+	            </div><!-- /.input group -->
+	          </div>
+	        </div>
+	      </div>
 				<!-- Content Header (Page header) -->
 				<section class="content-header">
           <div class="row">
             <div class="col-md-8">
               <h1>
 								Post Analysis
-                <small>Executive Summary</small>
+                <small>Post that Related to User Engangement</small>
               </h1>  
             </div>
             <div class="col-md-4">
@@ -283,7 +239,7 @@
 												<div class="chart-responsive">
 													<!-- Sales Chart Canvas -->
 													<!-- <canvas id="salesChart" height="180"></canvas> -->
-													<div id="chart-line-like" style="width: 100%; height: 300px; margin: 0 auto"></div>
+													<div id="chart-line-like" style="width: 100%; height: 200px; margin: 0 auto"></div>
 												</div><!-- /.chart-responsive -->
 											</div><!-- /.col -->
 										</div><!-- /.row -->
@@ -305,7 +261,7 @@
 												<div class="chart-responsive">
 													<!-- Sales Chart Canvas -->
 													<!-- <canvas id="salesChart" height="180"></canvas> -->
-													<div id="chart-line-comment" style="width: 100%; height: 300px; margin: 0 auto"></div>
+													<div id="chart-line-comment" style="width: 100%; height: 200px; margin: 0 auto"></div>
 												</div><!-- /.chart-responsive -->
 											</div><!-- /.col -->
 										</div><!-- /.row -->
@@ -328,7 +284,7 @@
 												<div class="chart-responsive">
 													<!-- Sales Chart Canvas -->
 													<!-- <canvas id="salesChart" height="180"></canvas> -->
-													<div id="chart-line-share" style="width: 100%; height: 300px; margin: 0 auto"></div>
+													<div id="chart-line-share" style="width: 100%; height: 200px; margin: 0 auto"></div>
 												</div><!-- /.chart-responsive -->
 											</div><!-- /.col -->
 										</div><!-- /.row -->
@@ -341,7 +297,7 @@
 							<div class="col-md-12">
 								<div class="box">
 									<div class="box-header with-border">
-										<h3 class="box-title">Bubble Chart</h3>
+										<h3 class="box-title">User Activity</h3>
 										<div class="box-tools pull-right">
 											<button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
 											<button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
