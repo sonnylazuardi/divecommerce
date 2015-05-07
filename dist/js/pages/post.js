@@ -485,7 +485,12 @@ title: {
             y: 25,
             symbolHeight: 280
         },
-
+        tooltip: {
+            formatter: function () {
+                return '<b></b>'+this.series.xAxis.categories[this.point.x] + ', ' +
+                     this.series.yAxis.categories[this.point.y] + ' = <b>' + this.point.value +'</b>';
+            }
+        },
         series: [{
             borderWidth: 1,
             data: [
