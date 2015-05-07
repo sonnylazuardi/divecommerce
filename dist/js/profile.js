@@ -120,7 +120,7 @@ $(function () {
       plotOptions: {
           column: {
               pointPadding: 0,
-              borderWidth: 0,
+              borderWidth: 0.2,
               groupPadding:0
           }
 
