@@ -9,7 +9,7 @@ $(function () {
                 type: 'bar'
             },
             colors: [
-            '#333','pink'
+            '#bbb','pink'
             ],
             title: {
                 text: ''
@@ -119,9 +119,11 @@ $(function () {
       },
       plotOptions: {
           column: {
-              pointPadding: 0.2,
-              borderWidth: 0
+              pointPadding: 0,
+              borderWidth: 0.2,
+              groupPadding:0
           }
+
       },
       legend: {
         enabled: false,
