@@ -15,19 +15,41 @@ $(function () {
 	var color_lazada = "#f39c12";
 	var color_tokopedia = "#00a65a";
 
-	$('#chart-line-like').highcharts({
-        title: {
+    $('#chart-line-like').highcharts({
+      title: {
             text: '',
             x: -20 //center
-        },
-        legend: {
+      },
+      legend: {
             enabled: false,
-        },
+      },
+      xAxis: {
+            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+              'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+      },
+      yAxis: {
+          title: {
+              text: ''
+          },
+          plotLines: [{
+              value: 0,
+              width: 1,
+              color: '#808080'
+          }]
+      },
+      tooltip: {
+          valueSuffix: '%',
+          shared: true,
+      },
+
         xAxis: {
-            title: {
-                text: 'Jan 2015'
-            },
-            categories: ['1','2','3','4','5','6','7','8','9','10','11','12' ]
+        type: 'datetime',
+        dateTimeLabelFormats: { // don't display the dummy year
+          day:"%b %e, %Y",
+          week:"%b %e, %Y",
+          month:"%B %Y",
+          year:"%Y"
+        }
         },
         yAxis: {
             title: {
@@ -43,41 +65,131 @@ $(function () {
             valueSuffix: 'post'
         },
         series: [{
-            name: 'BliBli',
-            color: color_blibli,
-            data: [7.0, 6.9, 12, 13, 18, 40, 20, 42, 6, 12, 42 ,21]
-        }, {
-            name: 'Rakuten',
-            color: color_rakuten,
-            data: [-0.2, 0.8, 8, 18, 50, 70, 40, 54, 78, 11, 12 ,24]
-        }, {
-            name: 'Tokopedia',
-            color: color_tokopedia,
-            data: [51, 30, 18, 13, 2, 1, 15, 30, 11, 12 ,24, 10]
-        }, {
-            name: 'Lazada',
-	          color: color_lazada,
-            data: [21, 10, 13, 2, 1, 18, 4, 40, 90 ,24, 40, 8 ]
-        }]
+          id: 0,
+          name: "BliBli",
+          color: color_blibli,
+          data: [
+            [Date.UTC(2015, 4,  1), 20],
+            [Date.UTC(2015, 4,  2), 19],
+            [Date.UTC(2015, 4,  3), 18],
+            [Date.UTC(2015, 4,  4), 10],
+            [Date.UTC(2015, 4,  5), 30],
+            [Date.UTC(2015, 4,  6), 35],
+            [Date.UTC(2015, 4,  7), 42],
+            [Date.UTC(2015, 4,  8), 50],
+            [Date.UTC(2015, 4,  9), 70],
+            [Date.UTC(2015, 4, 10), 40],
+            [Date.UTC(2015, 4, 11), 31],
+            [Date.UTC(2015, 4, 12), 10],
+            [Date.UTC(2015, 4, 13), 83],
+            [Date.UTC(2015, 4, 14), 40],
+            [Date.UTC(2015, 4, 15), 60],
+          ]
+      }, {
+          id: 1,
+          name: "Rakuten",
+          color: color_rakuten,
+          data: [
+            [Date.UTC(2015, 4,  1), 40],
+            [Date.UTC(2015, 4,  2), 16],
+            [Date.UTC(2015, 4,  3), 100],
+            [Date.UTC(2015, 4,  4), 58],
+            [Date.UTC(2015, 4,  5), 70],
+            [Date.UTC(2015, 4,  6), 40],
+            [Date.UTC(2015, 4,  7), 60],
+            [Date.UTC(2015, 4,  8), 30],
+            [Date.UTC(2015, 4,  9), 40],
+            [Date.UTC(2015, 4, 10), 70],
+            [Date.UTC(2015, 4, 11), 20],
+            [Date.UTC(2015, 4, 12), 70],
+            [Date.UTC(2015, 4, 13), 50],
+            [Date.UTC(2015, 4, 14), 52],
+            [Date.UTC(2015, 4, 15), 70],
+          ]
+      }, {
+          id: 2,
+          name: "Tokopedia",
+          color: color_tokopedia,
+          data: [
+            [Date.UTC(2015, 4,  1), 100],
+            [Date.UTC(2015, 4,  2), 38],
+            [Date.UTC(2015, 4,  3), 60],
+            [Date.UTC(2015, 4,  4), 72],
+            [Date.UTC(2015, 4,  5), 96],
+            [Date.UTC(2015, 4,  6), 69],
+            [Date.UTC(2015, 4,  7), 123],
+            [Date.UTC(2015, 4,  8), 23],
+            [Date.UTC(2015, 4,  9), 69],
+            [Date.UTC(2015, 4, 10), 26],
+            [Date.UTC(2015, 4, 11), 69],
+            [Date.UTC(2015, 4, 12), 80],
+            [Date.UTC(2015, 4, 13), 50],
+            [Date.UTC(2015, 4, 14), 30],
+            [Date.UTC(2015, 4, 15), 29],
+          ]
+      }, {
+          id: 3,
+          name: "Lazada",
+          color: color_lazada,
+          data: [
+            [Date.UTC(2015, 4,  1), 12],
+            [Date.UTC(2015, 4,  2), 80],
+            [Date.UTC(2015, 4,  3), 30],
+            [Date.UTC(2015, 4,  4), 60],
+            [Date.UTC(2015, 4,  5), 78],
+            [Date.UTC(2015, 4,  6), 10],
+            [Date.UTC(2015, 4,  7), 40],
+            [Date.UTC(2015, 4,  8), 60],
+            [Date.UTC(2015, 4,  9), 80],
+            [Date.UTC(2015, 4, 10), 30],
+            [Date.UTC(2015, 4, 11), 50],
+            [Date.UTC(2015, 4, 12), 70],
+            [Date.UTC(2015, 4, 13), 10],
+            [Date.UTC(2015, 4, 14), 40],
+            [Date.UTC(2015, 4, 15), 80],
+          ]
+      }]
     });
 
 	$('#chart-line-comment').highcharts({
-        title: {
+title: {
             text: '',
             x: -20 //center
-        },
-        legend: {
+      },
+      legend: {
             enabled: false,
-        },
+      },
+      xAxis: {
+            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+              'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+      },
+      yAxis: {
+          title: {
+              text: ''
+          },
+          plotLines: [{
+              value: 0,
+              width: 1,
+              color: '#808080'
+          }]
+      },
+      tooltip: {
+          valueSuffix: '%',
+          shared: true,
+      },
+
         xAxis: {
-            title: {
-                text: 'Jan 2015'
-            },
-            categories: ['1','2','3','4','5','6','7','8','9','10','11','12' ]
+        type: 'datetime',
+        dateTimeLabelFormats: { // don't display the dummy year
+          day:"%b %e, %Y",
+          week:"%b %e, %Y",
+          month:"%B %Y",
+          year:"%Y"
+        }
         },
         yAxis: {
             title: {
-                text: ''
+                text: 'Total'
             },
             plotLines: [{
                 value: 0,
@@ -89,42 +201,131 @@ $(function () {
             valueSuffix: 'post'
         },
         series: [{
-            name: 'BliBli',
-            color: color_blibli,
- 						data: [-0.2, 0.8, 8, 18, 50, 70, 40, 54, 78, 11, 12 ,24]
-        }, {
-            name: 'Rakuten',
-            color: color_rakuten,
-	          data: [7.0, 6.9, 12, 13, 18, 40, 20, 42, 6, 12, 42 ,21]            
-        }, {
-            name: 'Tokopedia',
-            color: color_tokopedia,
-            data: [21, 10, 13, 2, 1, 18, 4, 40, 90 ,24, 40, 8 ]
-        }, {
-            name: 'Lazada',
-	          color: color_lazada,
-            data: [51, 30, 18, 13, 2, 1, 15, 30, 11, 12 ,24, 10]
-
-        }]
+          id: 0,
+          name: "BliBli",
+          color: color_blibli,
+          data: [
+            [Date.UTC(2015, 4,  1), 0.01],
+            [Date.UTC(2015, 4,  2), 0.02],
+            [Date.UTC(2015, 4,  3), 0.03],
+            [Date.UTC(2015, 4,  4), 0.04],
+            [Date.UTC(2015, 4,  5), 0.02],
+            [Date.UTC(2015, 4,  6), 0.01],
+            [Date.UTC(2015, 4,  7), 0.008],
+            [Date.UTC(2015, 4,  8), 0.02],
+            [Date.UTC(2015, 4,  9), 0.03],
+            [Date.UTC(2015, 4, 10), 0.05],
+            [Date.UTC(2015, 4, 11), 0.03],
+            [Date.UTC(2015, 4, 12), 0.04],
+            [Date.UTC(2015, 4, 13), 0.03],
+            [Date.UTC(2015, 4, 14), 0.01],
+            [Date.UTC(2015, 4, 15), 0.02],
+          ]
+      }, {
+          id: 1,
+          name: "Rakuten",
+          color: color_rakuten,
+          data: [
+            [Date.UTC(2015, 4,  1), 0.02],
+            [Date.UTC(2015, 4,  2), 0.01],
+            [Date.UTC(2015, 4,  3), 0.01],
+            [Date.UTC(2015, 4,  4), 0.03],
+            [Date.UTC(2015, 4,  5), 0.04],
+            [Date.UTC(2015, 4,  6), 0.02],
+            [Date.UTC(2015, 4,  7), 0.02],
+            [Date.UTC(2015, 4,  8), 0.04],
+            [Date.UTC(2015, 4,  9), 0.03],
+            [Date.UTC(2015, 4, 10), 0.05],
+            [Date.UTC(2015, 4, 11), 0.06],
+            [Date.UTC(2015, 4, 12), 0.03],
+            [Date.UTC(2015, 4, 13), 0.02],
+            [Date.UTC(2015, 4, 14), 0.01],
+            [Date.UTC(2015, 4, 15), 0.01],
+          ]
+      }, {
+          id: 2,
+          name: "Tokopedia",
+          color: color_tokopedia,
+          data: [
+            [Date.UTC(2015, 4,  1), 0.00],
+            [Date.UTC(2015, 4,  2), 0.03],
+            [Date.UTC(2015, 4,  3), 0.02],
+            [Date.UTC(2015, 4,  4), 0.01],
+            [Date.UTC(2015, 4,  5), 0.01],
+            [Date.UTC(2015, 4,  6), 0.02],
+            [Date.UTC(2015, 4,  7), 0.02],
+            [Date.UTC(2015, 4,  8), 0.03],
+            [Date.UTC(2015, 4,  9), 0.05],
+            [Date.UTC(2015, 4, 10), 0.06],
+            [Date.UTC(2015, 4, 11), 0.03],
+            [Date.UTC(2015, 4, 12), 0.02],
+            [Date.UTC(2015, 4, 13), 0.03],
+            [Date.UTC(2015, 4, 14), 0.04],
+            [Date.UTC(2015, 4, 15), 0.05],
+          ]
+      }, {
+          id: 3,
+          name: "Lazada",
+          color: color_lazada,
+          data: [
+            [Date.UTC(2015, 4,  1), 0.04],
+            [Date.UTC(2015, 4,  2), 0.05],
+            [Date.UTC(2015, 4,  3), 0.05],
+            [Date.UTC(2015, 4,  4), 0.06],
+            [Date.UTC(2015, 4,  5), 0.04],
+            [Date.UTC(2015, 4,  6), 0.03],
+            [Date.UTC(2015, 4,  7), 0.02],
+            [Date.UTC(2015, 4,  8), 0.01],
+            [Date.UTC(2015, 4,  9), 0.01],
+            [Date.UTC(2015, 4, 10), 0.04],
+            [Date.UTC(2015, 4, 11), 0.05],
+            [Date.UTC(2015, 4, 12), 0.06],
+            [Date.UTC(2015, 4, 13), 0.03],
+            [Date.UTC(2015, 4, 14), 0.05],
+            [Date.UTC(2015, 4, 15), 0.07],
+          ]
+      }]
     });
 
     $('#chart-line-share').highcharts({
-        title: {
+title: {
             text: '',
             x: -20 //center
-        },
-        legend: {
+      },
+      legend: {
             enabled: false,
-        },
+      },
+      xAxis: {
+            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+              'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+      },
+      yAxis: {
+          title: {
+              text: ''
+          },
+          plotLines: [{
+              value: 0,
+              width: 1,
+              color: '#808080'
+          }]
+      },
+      tooltip: {
+          valueSuffix: '%',
+          shared: true,
+      },
+
         xAxis: {
-            title: {
-                text: 'Jan 2015'
-            },
-            categories: ['1','2','3','4','5','6','7','8','9','10','11','12' ]
+        type: 'datetime',
+        dateTimeLabelFormats: { // don't display the dummy year
+          day:"%b %e, %Y",
+          week:"%b %e, %Y",
+          month:"%B %Y",
+          year:"%Y"
+        }
         },
         yAxis: {
             title: {
-                text: ''
+                text: 'Total'
             },
             plotLines: [{
                 value: 0,
@@ -136,23 +337,90 @@ $(function () {
             valueSuffix: 'post'
         },
         series: [{
-            name: 'BliBli',
-            color: color_blibli,
-                        data: [-0.2, 0.8, 8, 18, 50, 70, 40, 54, 78, 11, 12 ,24]
-        }, {
-            name: 'Rakuten',
-            color: color_rakuten,
-              data: [7.0, 6.9, 12, 13, 18, 40, 20, 42, 6, 12, 42 ,21]            
-        }, {
-            name: 'Tokopedia',
-            color: color_tokopedia,
-            data: [21, 10, 13, 2, 1, 18, 4, 40, 90 ,24, 40, 8 ]
-        }, {
-            name: 'Lazada',
-              color: color_lazada,
-            data: [51, 30, 18, 13, 2, 1, 15, 30, 11, 12 ,24, 10]
-
-        }]
+          id: 0,
+          name: "BliBli",
+          color: color_blibli,
+          data: [
+            [Date.UTC(2015, 4,  1), 0.01],
+            [Date.UTC(2015, 4,  2), 0.02],
+            [Date.UTC(2015, 4,  3), 0.03],
+            [Date.UTC(2015, 4,  4), 0.04],
+            [Date.UTC(2015, 4,  5), 0.02],
+            [Date.UTC(2015, 4,  6), 0.01],
+            [Date.UTC(2015, 4,  7), 0.008],
+            [Date.UTC(2015, 4,  8), 0.02],
+            [Date.UTC(2015, 4,  9), 0.03],
+            [Date.UTC(2015, 4, 10), 0.05],
+            [Date.UTC(2015, 4, 11), 0.03],
+            [Date.UTC(2015, 4, 12), 0.04],
+            [Date.UTC(2015, 4, 13), 0.03],
+            [Date.UTC(2015, 4, 14), 0.01],
+            [Date.UTC(2015, 4, 15), 0.02],
+          ]
+      }, {
+          id: 1,
+          name: "Rakuten",
+          color: color_rakuten,
+          data: [
+            [Date.UTC(2015, 4,  1), 0.02],
+            [Date.UTC(2015, 4,  2), 0.01],
+            [Date.UTC(2015, 4,  3), 0.01],
+            [Date.UTC(2015, 4,  4), 0.03],
+            [Date.UTC(2015, 4,  5), 0.04],
+            [Date.UTC(2015, 4,  6), 0.02],
+            [Date.UTC(2015, 4,  7), 0.02],
+            [Date.UTC(2015, 4,  8), 0.04],
+            [Date.UTC(2015, 4,  9), 0.03],
+            [Date.UTC(2015, 4, 10), 0.05],
+            [Date.UTC(2015, 4, 11), 0.06],
+            [Date.UTC(2015, 4, 12), 0.03],
+            [Date.UTC(2015, 4, 13), 0.02],
+            [Date.UTC(2015, 4, 14), 0.01],
+            [Date.UTC(2015, 4, 15), 0.01],
+          ]
+      }, {
+          id: 2,
+          name: "Tokopedia",
+          color: color_tokopedia,
+          data: [
+            [Date.UTC(2015, 4,  1), 0.00],
+            [Date.UTC(2015, 4,  2), 0.03],
+            [Date.UTC(2015, 4,  3), 0.02],
+            [Date.UTC(2015, 4,  4), 0.01],
+            [Date.UTC(2015, 4,  5), 0.01],
+            [Date.UTC(2015, 4,  6), 0.02],
+            [Date.UTC(2015, 4,  7), 0.02],
+            [Date.UTC(2015, 4,  8), 0.03],
+            [Date.UTC(2015, 4,  9), 0.05],
+            [Date.UTC(2015, 4, 10), 0.06],
+            [Date.UTC(2015, 4, 11), 0.03],
+            [Date.UTC(2015, 4, 12), 0.02],
+            [Date.UTC(2015, 4, 13), 0.03],
+            [Date.UTC(2015, 4, 14), 0.04],
+            [Date.UTC(2015, 4, 15), 0.05],
+          ]
+      }, {
+          id: 3,
+          name: "Lazada",
+          color: color_lazada,
+          data: [
+            [Date.UTC(2015, 4,  1), 0.04],
+            [Date.UTC(2015, 4,  2), 0.05],
+            [Date.UTC(2015, 4,  3), 0.05],
+            [Date.UTC(2015, 4,  4), 0.06],
+            [Date.UTC(2015, 4,  5), 0.04],
+            [Date.UTC(2015, 4,  6), 0.03],
+            [Date.UTC(2015, 4,  7), 0.02],
+            [Date.UTC(2015, 4,  8), 0.01],
+            [Date.UTC(2015, 4,  9), 0.01],
+            [Date.UTC(2015, 4, 10), 0.04],
+            [Date.UTC(2015, 4, 11), 0.05],
+            [Date.UTC(2015, 4, 12), 0.06],
+            [Date.UTC(2015, 4, 13), 0.03],
+            [Date.UTC(2015, 4, 14), 0.05],
+            [Date.UTC(2015, 4, 15), 0.07],
+          ]
+      }]
     });
 
 	$('#chart-bubble').highcharts({
@@ -164,7 +432,7 @@ $(function () {
 
 
         title: {
-            text: ''
+            text: 'Blibli'
         },
 
         xAxis: {
@@ -248,9 +516,93 @@ $(function () {
 
             ],
             dataLabels: {
-                enabled: true,
+                enabled: false,
                 color: '#000000'
             }
         }]
     });
+
+
+  // function randomDate(start_date, end_date, min, max, floating) {
+  //   console.log("randomDate triggered!");
+    
+  //   var max_velocity = 0.2;
+  //   var slope_prob = 0.2;
+
+  //   var ret = [];
+  //   var rangeDate = moment().range(start_date, end_date);
+  //   var state_up = false;
+  //   var value = min + ((max-min)/4) + (Math.random()*((max-min)/2));
+  //   if (!floating)
+  //       value = Math.floor(value);
+
+  //   rangeDate.by('days', function(moment) {
+
+  //     console.log(value);
+
+  //     var prob_up = 1-((value-min)/(max-min));
+  //     if (Math.random()<prob_up) {
+  //       if ((state_up)||((!state_up)&&(Math.random()<=slope_prob))) {
+  //         state_up = true;
+  //       }
+  //     } else {
+  //       if ((!state_up)||((state_up)&&(Math.random()<=slope_prob))) {
+  //         state_up = false;
+  //       }
+  //     }
+
+  //     var delta = 0;
+  //     if (state_up) {
+  //       delta = (max-value)*Math.random()*max_velocity;
+  //     }
+  //     else {
+  //       delta = ((value-min)*Math.random()*max_velocity)*-1; 
+  //     }
+  //     if (!floating)
+  //       delta = Math.floor(delta);
+
+  //     value += delta;
+
+  //     ret.push([
+  //       moment.valueOf(), value
+  //     ]);
+  //   });
+  //   return ret;
+  // };
+
+  // function refreshData(st,en) {
+  //   var cei = setInterval(function() {
+  //     if ($('#chart-line-like').highcharts()!=null) {
+  //       for (var i = 0; i <= 3; i++) {
+  //         $('#chart-line-like').highcharts().series[i].setData(randomDate(st, en, 0.0, 0.15, true));
+  //       };
+  //       clearInterval(cei);
+  //     }
+  //   },10);
+  //   // var cfi = setInterval(function() {
+  //   //   if ($('#chart-fans').highcharts()!=null) {
+  //   //     for (var i = 0; i <= 3; i++) {
+  //   //       $('#chart-fans').highcharts().series[i].setData(randomDate(st, en, -3, 5, true));
+  //   //     };
+  //   //     clearInterval(cfi);
+  //   //   }
+  //   // },10);
+  // };
+
+  // $('.filterdate').daterangepicker({}, function(start, end) {
+  //   console.log("halo");
+  //   var st = new Date(start);
+  //   var en = new Date(end);
+  //   refreshData(st,en);
+  // });
+
+  // var initstart = "2015-03-05";
+  // var initend = "2015-03-20";
+
+  // var st = new Date(initstart);
+  // var en = new Date(initend);
+
+  // $('.filterdate').daterangepicker({ startDate: initstart, endDate: initend });
+
+  // refreshData(st,en);
 });
