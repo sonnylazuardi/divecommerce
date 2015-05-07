@@ -16,8 +16,13 @@ $(function () {
 	$('#chart-kpi').highcharts({
 
 		chart: {
+			backgroundColor: '#333',
+
 				polar: true,
-				type: 'line'
+				type: 'line',
+				style: {
+            color: "#fff"
+        }
 		},
 
 		title: {
@@ -41,7 +46,12 @@ $(function () {
 					'Admin Response Rate'
 				],
 				tickmarkPlacement: 'on',
-				lineWidth: 0
+				lineWidth: 0, 
+				labels: {
+					style: {
+            color: "#fff"
+        	}
+				}
 		},
 
 		yAxis: {
