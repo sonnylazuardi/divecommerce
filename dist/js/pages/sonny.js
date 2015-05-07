@@ -150,7 +150,7 @@ $(function () {
 
   $('#chartLikes').highcharts({
       chart: {
-        backgroundColor: '#ddd',
+        backgroundColor: '#fff',
           type: 'column'
       },
       title: {
@@ -210,7 +210,7 @@ $(function () {
   });
   $('#chartComments').highcharts({
       chart: {
-        backgroundColor: '#ddd',
+        backgroundColor: '#fff',
           type: 'column'
       },
       title: {
@@ -270,7 +270,7 @@ $(function () {
   });
   $('#chartShares').highcharts({
       chart: {
-        backgroundColor: '#ddd',
+        backgroundColor: '#fff',
           type: 'column'
       },
       title: {
@@ -331,7 +331,7 @@ $(function () {
 
   $('#chartMedia').highcharts({
       chart: {
-        backgroundColor: '#ddd',
+        backgroundColor: '#fff',
         type: 'column'
       },
       title: {
@@ -401,7 +401,7 @@ $(function () {
 
   $('#chartLink').highcharts({
       chart: {
-        backgroundColor: '#ddd',
+        backgroundColor: '#fff',
         type: 'column'
       },
       title: {
@@ -471,7 +471,7 @@ $(function () {
 
   $('#chartStatus').highcharts({
       chart: {
-        backgroundColor: '#ddd',
+        backgroundColor: '#fff',
         type: 'column'
       },
       title: {
