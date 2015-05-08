@@ -2,8 +2,9 @@
 
 $(function () {
     
-    var categories = [  'Lazada',  'Tokopedia','Rakuten','Blibli'  ];
+    var categories = [  'Lazada',  'Tokopedia','Rakuten','Blibli' ];
     $(document).ready(function () {
+
         $('#distribusipengguna').highcharts({
             chart: {
                 type: 'bar'
@@ -152,6 +153,9 @@ $(function () {
         // labels: ["Anak-anak(<12)","Remaja(12-17)","Dewasa Muda(18-29)","Dewasa(>30)"]
     });
 
+    var maleData = [-3100000, -2850000, -1100000, -2222362];
+    var femaleData = [1800000, 1200000, 2800000, 2100000];
+
     $('.toggleBtn').click(function() {
     var self = $(this);
     var id = self.data('id');
@@ -169,12 +173,22 @@ $(function () {
       $('#toggleBtnSmall'+id).find('.info-box-small').removeClass().addClass('info-box-small').addClass('inactive');
       $('#toggleBtn'+id).find('.info-box').removeClass().addClass('info-box').addClass('inactive');
     }
+
       var series = $('#barChart').highcharts().series[id];
 
       if (self.data('status')) {
         series.show();
+        // $('#distribusipengguna').highcharts().series[0].data[id].remove();
+        // $('#distribusipengguna').highcharts().series[0];
+        // $('#distribusipengguna').highcharts().series[1];
       } else {
         series.hide();
+        // console.log($('#distribusipengguna').highcharts().series[0].data[id]);
+        $('#distribusipengguna').highcharts().categories.data[id].remove();
+        // console.log($('#distribusipengguna').highcharts().xAxis[0].categories[id]);
+        // $('#distribusipengguna').highcharts().series[0].data[id];
+        // $('#distribusipengguna').highcharts().series[0].setData(_.without(maleData, maleData[id]));
+        // $('#distribusipengguna').highcharts().series[1].setData(_.without(maleData, maleData[id]));
       }  
     });
 });
