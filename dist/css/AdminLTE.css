@@ -57,6 +57,7 @@ body {
 .content-wrapper,
 .right-side,
 .main-footer {
+  font-family: 'Montserrat', 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.32, 1.25, 0.375, 1.15);
   -moz-transition: -moz-transform 0.3s cubic-bezier(0.32, 1.25, 0.375, 1.15);
   -o-transition: -o-transform 0.3s cubic-bezier(0.32, 1.25, 0.375, 1.15);
@@ -109,25 +110,9 @@ body {
   border-top: 1px solid #eee;
 }
 /* Fixed layout */
-.fixed .main-header,
 .fixed .main-sidebar,
 .fixed .left-side {
   position: fixed;
-}
-.fixed .main-header {
-  top: 0;
-  right: 0;
-  left: 0;
-}
-.fixed .content-wrapper,
-.fixed .right-side {
-  padding-top: 50px;
-}
-@media (max-width: 767px) {
-  .fixed .content-wrapper,
-  .fixed .right-side {
-    padding-top: 100px;
-  }
 }
 .fixed.layout-boxed .wrapper {
   max-width: 100%;
@@ -177,12 +162,15 @@ a:focus {
   display: block;
   margin-top: 5px;
 }
+.box-pane-right {
+  font-size: 13px;
+}
 /*
  * Component: Main Header
  * ----------------------
  */
 .main-header {
-  position: relative;
+  position: fixed;
   max-height: 100px;
   z-index: 1030;
 }
@@ -277,19 +265,22 @@ a:focus {
   line-height: 50px;
   text-align: center;
   width: 230px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat', 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   padding: 0 15px;
   font-weight: 300;
+  margin-top: 5px;
 }
 .main-header .navbar-brand {
   color: #fff;
 }
 .content-header {
-  position: relative;
   padding: 15px 15px 0 15px;
 }
 .content-header h1 {
+  font-family: 'Montserrat', 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   margin: 0;
+  font-weight: 700;
+  margin-bottom: 20px;
   font-size: 24px;
 }
 .content-header h1 > small {
@@ -356,6 +347,9 @@ a:focus {
     padding-bottom: 15px;
     line-height: 20px;
   }
+  #smallMenu {
+    margin-left: 0 !important;
+  }
 }
 @media (max-width: 767px) {
   .main-header {
@@ -377,6 +371,9 @@ a:focus {
   .left-side {
     padding-top: 100px!important;
   }
+  #smallMenu {
+    margin-left: 0 !important;
+  }
 }
 i.big {
   font-size: 20px;
@@ -387,17 +384,24 @@ i.big {
   padding: 5px 10px;
 }
 #smallMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
   display: none;
-  padding-top: 55px;
+  z-index: 1031;
+  margin-left: 230px;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
 }
 #smallMenu .info-box-small-content {
   display: inline;
 }
-.toggle {
-  margin-top: 10px;
-}
 .toggle a {
   cursor: pointer;
+}
+.left-side {
+  width: 230px;
+  display: inline-block;
 }
 /*
  * Component: Sidebar
@@ -501,6 +505,7 @@ i.big {
   padding: 0;
 }
 .sidebar-menu > li > a {
+  font-family: 'Montserrat', 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   padding: 12px 5px 12px 15px;
   display: block;
 }
@@ -1350,7 +1355,7 @@ i.big {
 .box-header {
   color: #444;
   display: block;
-  padding: 10px;
+  padding: 15px 20px;
   position: relative;
 }
 .box-header:before,
@@ -1371,8 +1376,10 @@ i.big {
 .box-header > .glyphicon,
 .box-header > .ion,
 .box-header .box-title {
+  font-family: 'Montserrat', 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
   display: inline-block;
-  font-size: 18px;
+  font-size: 16px;
+  font-weight: 700;
   margin: 0;
   line-height: 1;
 }
@@ -1412,7 +1419,7 @@ i.big {
   border-top-right-radius: 0;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
-  padding: 10px;
+  padding: 15px 20px;
 }
 .no-header .box-body {
   border-top-right-radius: 3px;
@@ -1457,7 +1464,7 @@ i.big {
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
   border-top: 1px solid #f4f4f4;
-  padding: 10px;
+  padding: 15px 20px;
   background-color: #ffffff;
 }
 .chart-legend {
@@ -1608,11 +1615,17 @@ i.big {
 .box-input {
   max-width: 200px;
 }
+h4.box-title {
+  font-family: 'Montserrat', 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+}
 /*
  * Component: Info Box
  * -------------------
  */
 .info-box {
+  font-family: 'Montserrat', 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   display: block;
   min-height: 50px;
   background: #fff;
@@ -1675,6 +1688,8 @@ i.big {
 }
 .info-box-text {
   text-transform: uppercase;
+  color: #333;
+  margin-top: 5px;
 }
 .info-box-more {
   display: block;
@@ -3573,7 +3588,7 @@ fieldset[disabled] .btn-vk.active {
   border-right: 0;
 }
 .fc-toolbar {
-  padding: 10px;
+  padding: 15px 20px;
   margin: 0;
 }
 .fc-day-number {
@@ -3721,8 +3736,8 @@ fieldset[disabled] .btn-vk.active {
   color: #fff !important;
 }
 .bg-gray {
-  color: #fff;
-  background-color: #333333 !important;
+  color: #000;
+  background-color: #fff !important;
 }
 .bg-black {
   background-color: #111111 !important;

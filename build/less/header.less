@@ -4,7 +4,7 @@
  */
 
 .main-header {
-  position: relative;
+  position: fixed;
   max-height: 100px;
   z-index: 1030;
   //Navbar
@@ -109,9 +109,11 @@
     line-height: 50px;
     text-align: center;
     width: @sidebar-width;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    // font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Montserrat', 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     padding: 0 15px;
     font-weight: 300;
+    margin-top: 5px;
   }
   //Navbar Brand. Alternative logo with layout-top-nav
   .navbar-brand {
@@ -121,11 +123,14 @@
 
 // Content Header
 .content-header {
-  position: relative;
+  
   padding: 15px 15px 0 15px;
   // Header Text
   h1 {
+    font-family: 'Montserrat', 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     margin: 0;
+    font-weight: 700;
+    margin-bottom: 20px;
     font-size: 24px;
     > small {
       font-size: 15px;
@@ -196,6 +201,9 @@
     padding-bottom: 15px;
     line-height: 20px;
   }
+  #smallMenu {
+    margin-left: 0 !important;
+  }
 }
 
 // Collapse header
@@ -219,6 +227,9 @@
   .left-side {
     padding-top: 100px!important;    
   }
+  #smallMenu {
+    margin-left: 0 !important;
+  }
 }
 
 i {
@@ -235,16 +246,26 @@ i {
 
 #smallMenu {
   // transition: all .5s;
+  position: fixed;
+  top: 0;
+  left: 0;
   display: none;  
-  padding-top: 55px;  
+  z-index: 1031;
+  margin-left: @sidebar-width;
+  // padding-top: 55px;  
+  background: #fff;
+  border-bottom: 1px solid #ddd;
   .info-box-small-content {
     display: inline;
   }
 }
 
 .toggle {
-  margin-top: 10px;
   a {
     cursor: pointer;
   }
+}
+.left-side {
+  width: @sidebar-width;
+  display: inline-block;
 }

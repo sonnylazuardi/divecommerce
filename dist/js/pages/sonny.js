@@ -150,6 +150,7 @@ $(function () {
 
   $('#chartLikes').highcharts({
       chart: {
+        backgroundColor: '#fff',
           type: 'column'
       },
       title: {
@@ -209,6 +210,7 @@ $(function () {
   });
   $('#chartComments').highcharts({
       chart: {
+        backgroundColor: '#fff',
           type: 'column'
       },
       title: {
@@ -268,6 +270,7 @@ $(function () {
   });
   $('#chartShares').highcharts({
       chart: {
+        backgroundColor: '#fff',
           type: 'column'
       },
       title: {
@@ -328,7 +331,7 @@ $(function () {
 
   $('#chartMedia').highcharts({
       chart: {
-        backgroundColor: '#333',
+        backgroundColor: '#fff',
         type: 'column'
       },
       title: {
@@ -347,9 +350,9 @@ $(function () {
           categories: [
               'Total',
           ],
-          gridLineColor: "#555",
-          lineColor: '#555',
-          tickColor: '#555',
+          gridLineColor: "#eee",
+          lineColor: '#eee',
+          tickColor: '#eee',
           crosshair: true
       },
       yAxis: {
@@ -357,9 +360,9 @@ $(function () {
           enabled: false,
         },
           min: 0,
-          gridLineColor: "#555",
-          lineColor: '#555',
-          tickColor: '#555',
+          gridLineColor: "#eee",
+          lineColor: '#eee',
+          tickColor: '#eee',
           title: {
               text: ''
           }
@@ -398,7 +401,7 @@ $(function () {
 
   $('#chartLink').highcharts({
       chart: {
-        backgroundColor: '#333',
+        backgroundColor: '#fff',
         type: 'column'
       },
       title: {
@@ -417,9 +420,9 @@ $(function () {
           categories: [
               'Total',
           ],
-          gridLineColor: "#555",
-          lineColor: '#555',
-          tickColor: '#555',
+          gridLineColor: "#eee",
+          lineColor: '#eee',
+          tickColor: '#eee',
           crosshair: true
       },
       yAxis: {
@@ -427,9 +430,9 @@ $(function () {
           enabled: false,
         },
           min: 0,
-          gridLineColor: "#555",
-          lineColor: '#555',
-          tickColor: '#555',
+          gridLineColor: "#eee",
+          lineColor: '#eee',
+          tickColor: '#eee',
           title: {
               text: ''
           }
@@ -468,7 +471,7 @@ $(function () {
 
   $('#chartStatus').highcharts({
       chart: {
-        backgroundColor: '#333',
+        backgroundColor: '#fff',
         type: 'column'
       },
       title: {
@@ -487,9 +490,9 @@ $(function () {
           categories: [
               'Total',
           ],
-          gridLineColor: "#555",
-          lineColor: '#555',
-          tickColor: '#555',
+          gridLineColor: "#eee",
+          lineColor: '#eee',
+          tickColor: '#eee',
           crosshair: true
       },
       yAxis: {
@@ -497,9 +500,9 @@ $(function () {
           enabled: false,
         },
           min: 0,
-          gridLineColor: "#555",
-          lineColor: '#555',
-          tickColor: '#555',
+          gridLineColor: "#eee",
+          lineColor: '#eee',
+          tickColor: '#eee',
           title: {
               text: ''
           }
@@ -608,6 +611,11 @@ $('.toggleBtn2').click(function() {
       '#chart-line-comment',
       '#chart-line-share'
     ];
+    if (self.data('status')) {
+      $('#chart-'+id).show();
+    } else {
+      $('#chart-'+id).hide();
+    }
     $.each(chartList, function (i, item) {
       var series = $(item).highcharts().series[id];
 
@@ -745,6 +753,30 @@ $('.toggleBtn2').click(function() {
           $('#chart-fans').highcharts().series[i].setData(randomDate(st, en, -3, 5, true));
         };
         clearInterval(cfi);
+      }
+    },10);
+    var cll = setInterval(function() {
+      if ($('#chart-line-like').highcharts()!=null) {
+        for (var i = 0; i <= 3; i++) {
+          $('#chart-line-like').highcharts().series[i].setData(randomDate(st, en, 10, 100, true));
+        };
+        clearInterval(cll);
+      }
+    },10);
+    var clc = setInterval(function() {
+      if ($('#chart-line-comment').highcharts()!=null) {
+        for (var i = 0; i <= 3; i++) {
+          $('#chart-line-comment').highcharts().series[i].setData(randomDate(st, en, 5, 120, true));
+        };
+        clearInterval(clc);
+      }
+    },10);
+    var cls = setInterval(function() {
+      if ($('#chart-line-share').highcharts()!=null) {
+        for (var i = 0; i <= 3; i++) {
+          $('#chart-line-share').highcharts().series[i].setData(randomDate(st, en, 20, 150, true));
+        };
+        clearInterval(cls);
       }
     },10);
   };
