@@ -24,10 +24,13 @@ $(function () {
             enabled: false,
         },
         xAxis: {
-            title: {
-                text: 'Jan 2015'
-            },
-            categories: ['1','2','3','4','5','6','7','8','9','10','11','12' ]
+            type: 'datetime',
+            dateTimeLabelFormats: { // don't display the dummy year
+                day:"%A, %b %e, %Y",
+                week:"Week from %A, %b %e, %Y",
+                month:"%B %Y",
+                year:"%Y"
+            }
         },
         yAxis: {
             title: {
@@ -45,19 +48,19 @@ $(function () {
         series: [{
             name: 'BliBli',
             color: color_blibli,
-            data: [7.0, 6.9, 12, 13, 18, 40, 20, 42, 6, 12, 42 ,21]
+            data: []
         }, {
             name: 'Rakuten',
             color: color_rakuten,
-            data: [-0.2, 0.8, 8, 18, 50, 70, 40, 54, 78, 11, 12 ,24]
+            data: []
         }, {
             name: 'Tokopedia',
             color: color_tokopedia,
-            data: [51, 30, 18, 13, 2, 1, 15, 30, 11, 12 ,24, 10]
+            data: []
         }, {
             name: 'Lazada',
 	          color: color_lazada,
-            data: [21, 10, 13, 2, 1, 18, 4, 40, 90 ,24, 40, 8 ]
+            data: []
         }]
     });
 
@@ -70,10 +73,13 @@ $(function () {
             enabled: false,
         },
         xAxis: {
-            title: {
-                text: 'Jan 2015'
-            },
-            categories: ['1','2','3','4','5','6','7','8','9','10','11','12' ]
+            type: 'datetime',
+            dateTimeLabelFormats: { // don't display the dummy year
+                day:"%A, %b %e, %Y",
+                week:"Week from %A, %b %e, %Y",
+                month:"%B %Y",
+                year:"%Y"
+            }
         },
         yAxis: {
             title: {
@@ -91,19 +97,19 @@ $(function () {
         series: [{
             name: 'BliBli',
             color: color_blibli,
- 						data: [-0.2, 0.8, 8, 18, 50, 70, 40, 54, 78, 11, 12 ,24]
+ 			data: []
         }, {
             name: 'Rakuten',
             color: color_rakuten,
-	          data: [7.0, 6.9, 12, 13, 18, 40, 20, 42, 6, 12, 42 ,21]            
+	          data: []            
         }, {
             name: 'Tokopedia',
             color: color_tokopedia,
-            data: [21, 10, 13, 2, 1, 18, 4, 40, 90 ,24, 40, 8 ]
+            data: []
         }, {
             name: 'Lazada',
 	          color: color_lazada,
-            data: [51, 30, 18, 13, 2, 1, 15, 30, 11, 12 ,24, 10]
+            data: []
 
         }]
     });
@@ -117,10 +123,13 @@ $(function () {
             enabled: false,
         },
         xAxis: {
-            title: {
-                text: 'Jan 2015'
-            },
-            categories: ['1','2','3','4','5','6','7','8','9','10','11','12' ]
+            type: 'datetime',
+            dateTimeLabelFormats: { // don't display the dummy year
+                day:"%A, %b %e, %Y",
+                week:"Week from %A, %b %e, %Y",
+                month:"%B %Y",
+                year:"%Y"
+            }
         },
         yAxis: {
             title: {
@@ -138,19 +147,19 @@ $(function () {
         series: [{
             name: 'BliBli',
             color: color_blibli,
-                        data: [-0.2, 0.8, 8, 18, 50, 70, 40, 54, 78, 11, 12 ,24]
+            data: []
         }, {
             name: 'Rakuten',
             color: color_rakuten,
-              data: [7.0, 6.9, 12, 13, 18, 40, 20, 42, 6, 12, 42 ,21]            
+              data: []            
         }, {
             name: 'Tokopedia',
             color: color_tokopedia,
-            data: [21, 10, 13, 2, 1, 18, 4, 40, 90 ,24, 40, 8 ]
+            data: []
         }, {
             name: 'Lazada',
               color: color_lazada,
-            data: [51, 30, 18, 13, 2, 1, 15, 30, 11, 12 ,24, 10]
+            data: []
 
         }]
     });
@@ -253,4 +262,95 @@ $(function () {
             }
         }]
     });
+
+function randomDate(start_date, end_date, min, max, floating) {
+
+    console.log("randomDate");
+
+    var max_velocity = 0.2;
+    var slope_prob = 0.2;
+
+    var ret = [];
+    var rangeDate = moment().range(start_date, end_date);
+    var state_up = false;
+    var value = min + ((max-min)/4) + (Math.random()*((max-min)/2));
+    if (!floating)
+        value = Math.floor(value);
+
+    rangeDate.by('days', function(moment) {
+
+      console.log(value);
+
+      var prob_up = 1-((value-min)/(max-min));
+      if (Math.random()<prob_up) {
+        if ((state_up)||((!state_up)&&(Math.random()<=slope_prob))) {
+          state_up = true;
+        }
+      } else {
+        if ((!state_up)||((state_up)&&(Math.random()<=slope_prob))) {
+          state_up = false;
+        }
+      }
+
+      var delta = 0;
+      if (state_up) {
+        delta = (max-value)*Math.random()*max_velocity;
+      }
+      else {
+        delta = ((value-min)*Math.random()*max_velocity)*-1; 
+      }
+      if (!floating)
+        delta = Math.floor(delta);
+
+      value += delta;
+
+      ret.push([
+        moment.valueOf(), value
+      ]);
+    });
+    return ret;
+  };
+
+  function refreshData(st,en) {
+    var cls = setInterval(function() {
+      if ($('#chart-line-share').highcharts()!=null) {
+        for (var i = 0; i <= 3; i++) {
+          $('#chart-line-share').highcharts().series[i].setData(randomDate(st, en, 50, 500, false));
+        };
+        clearInterval(cls);
+      }
+    },10);
+    var clc = setInterval(function() {
+      if ($('#chart-line-comment').highcharts()!=null) {
+        for (var i = 0; i <= 3; i++) {
+          $('#chart-line-comment').highcharts().series[i].setData(randomDate(st, en, 50, 500, false));
+        };
+        clearInterval(clc);
+      }
+    },10);
+    var cll = setInterval(function() {
+      if ($('#chart-line-like').highcharts()!=null) {
+        for (var i = 0; i <= 3; i++) {
+          $('#chart-line-like').highcharts().series[i].setData(randomDate(st, en, 50, 500, false));
+        };
+        clearInterval(cll);
+      }
+    },10);
+  };
+
+  $('.filterdate').daterangepicker({}, function(start, end) {
+    var st = new Date(start);
+    var en = new Date(end);
+    refreshData(st,en);
+  });
+
+  var initstart = "2015-03-05";
+  var initend = "2015-03-20";
+
+  var st = new Date(initstart);
+  var en = new Date(initend);
+
+  $('.filterdate').daterangepicker({ startDate: initstart, endDate: initend });
+
+  refreshData(st,en);
 });
