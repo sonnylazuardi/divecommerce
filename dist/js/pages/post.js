@@ -8,12 +8,12 @@ $(function () {
 
   $('.filterdate').daterangepicker();
 
- 	//line chart
+  //line chart
 
-	var color_blibli = "#00c0ef";
-	var color_rakuten = "#dd4b39";
-	var color_lazada = "#f39c12";
-	var color_tokopedia = "#00a65a";
+  var color_blibli = "#00c0ef";
+  var color_rakuten = "#dd4b39";
+  var color_lazada = "#f39c12";
+  var color_tokopedia = "#00a65a";
 
     $('#chart-line-like').highcharts({
       title: {
@@ -151,7 +151,7 @@ $(function () {
       }]
     });
 
-	$('#chart-line-comment').highcharts({
+  $('#chart-line-comment').highcharts({
 title: {
             text: '',
             x: -20 //center
@@ -423,7 +423,7 @@ title: {
       }]
     });
 
-	$('#chart-bubble').highcharts({
+  $('#chart-bubble').highcharts({
         chart: {
             type: 'heatmap',
             marginTop: 40,
