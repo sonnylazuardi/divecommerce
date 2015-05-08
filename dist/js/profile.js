@@ -2,7 +2,11 @@
 
 $(function () {
     
-    var categories = [  'Lazada',  'Tokopedia','Rakuten','Blibli'  ];
+    var categories = [  'Blibli', 'Rakuten', 'Tokopedia', 'Lazada'];
+    var val_m = [-3100000, -2850000, -1100000, -2222362];
+    var val_f = [1800000, 1200000, 2800000, 2100000];
+    var categories_show = [true,true,true,true];
+
     $(document).ready(function () {
         $('#distribusipengguna').highcharts({
             chart: {
@@ -57,10 +61,10 @@ $(function () {
 
             series: [{
                 name: 'Male',
-                data: [-3100000, -2850000, -1100000, -2222362]
+                data: val_m
             }, {
                 name: 'Female',
-                data: [1800000, 1200000, 2800000, 2100000]
+                data: val_f
             }]
         });
     });
@@ -153,28 +157,63 @@ $(function () {
     });
 
     $('.toggleBtn').click(function() {
-    var self = $(this);
-    var id = self.data('id');
+      var self = $(this);
+      var id = self.data('id');
 
-    self.data('status', !self.data('status'));
-    $('#toggleBtnSmall'+id).data('status', self.data('status'));
-    $('#toggleBtn'+id).data('status', self.data('status'));
+      self.data('status', !self.data('status'));
+      $('#toggleBtnSmall'+id).data('status', self.data('status'));
+      $('#toggleBtn'+id).data('status', self.data('status'));
 
-    if (self.data('status')) {
-      self.find('.info-box').removeClass().addClass('info-box').addClass('active');
-      $('#toggleBtnSmall'+id).find('.info-box-small').removeClass().addClass('info-box-small').addClass('active');
-      $('#toggleBtn'+id).find('.info-box').removeClass().addClass('info-box').addClass('active');
-    } else {
-      self.find('.info-box').removeClass().addClass('info-box').addClass('inactive');
-      $('#toggleBtnSmall'+id).find('.info-box-small').removeClass().addClass('info-box-small').addClass('inactive');
-      $('#toggleBtn'+id).find('.info-box').removeClass().addClass('info-box').addClass('inactive');
-    }
+      if (self.data('status')) {
+        self.find('.info-box').removeClass().addClass('info-box').addClass('active');
+        $('#toggleBtnSmall'+id).find('.info-box-small').removeClass().addClass('info-box-small').addClass('active');
+        $('#toggleBtn'+id).find('.info-box').removeClass().addClass('info-box').addClass('active');
+      } else {
+        self.find('.info-box').removeClass().addClass('info-box').addClass('inactive');
+        $('#toggleBtnSmall'+id).find('.info-box-small').removeClass().addClass('info-box-small').addClass('inactive');
+        $('#toggleBtn'+id).find('.info-box').removeClass().addClass('info-box').addClass('inactive');
+      }
+
       var series = $('#barChart').highcharts().series[id];
 
       if (self.data('status')) {
         series.show();
       } else {
         series.hide();
-      }  
+      }
+
+      var distribusipengguna = $('#distribusipengguna').highcharts(); 
+
+      categories_show[id] = self.data('status');
+
+      distribusipengguna.xAxis[0].categories = [];
+      distribusipengguna.xAxis[0].series[0].data = [];
+      distribusipengguna.xAxis[0].series[1].data = [];
+
+      var categories_update = [];
+      var val_m_update = [];
+      var val_f_update = [];
+
+      async.each([0,1,2,3], function(category_idx, callback) {
+        if (categories_show[category_idx]) {
+          categories_update.push(categories[category_idx]);
+          val_m_update.push(val_m[category_idx]);
+          val_f_update.push(val_f[category_idx]);
+        };
+        callback();
+      }, function(err) {
+        distribusipengguna.xAxis[0].setCategories(categories_update, false);
+        distribusipengguna.xAxis[1].setCategories(categories_update, false);
+        distribusipengguna.series[0].setData(val_m_update, false);
+        distribusipengguna.series[1].setData(val_f_update, false);
+        distribusipengguna.redraw();
+        console.log(distribusipengguna);
+      });
+
     });
+
+  $('.filterdate').daterangepicker({}, function(start, end) {
+    var st = new Date(start);
+    var en = new Date(end);
+  });
 });
